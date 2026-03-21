@@ -889,9 +889,101 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
 /* Connect cards – spotlight layer passthrough */
 .cc{position:relative;--mx:50%;--my:50%}
 
+/* ═══════════════════════════════════════════════════════════════
+   AESTHETIC TRANSFORMATION — Bento · Glass 2.0 · Spring · Canvas
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Neural canvas ── */
+#neural-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.42;will-change:opacity}
+[data-theme="light"] #neural-bg{opacity:.14}
+
+/* ── Services Bento Grid (desktop) ── */
+@media(min-width:1024px){
+  .srv-grid{
+    grid-template-columns:repeat(6,1fr);
+    gap:clamp(12px,1.3vw,16px);
+    background:transparent;
+    border:none;
+    border-radius:0;
+    overflow:visible;
+  }
+  .srv-card{border-radius:24px;border:1px solid var(--border2)}
+  .srv-card:nth-child(1){grid-column:span 4}
+  .srv-card:nth-child(2){grid-column:span 2}
+  .srv-card:nth-child(3){grid-column:span 2}
+  .srv-card:nth-child(4){grid-column:span 4}
+  .srv-card:nth-child(5){grid-column:span 3}
+  .srv-card:nth-child(6){grid-column:span 3}
+}
+/* Tablet: restore container style */
+@media(min-width:640px) and (max-width:1023px){
+  .srv-grid{background:var(--border);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+}
+/* Light mode bento border */
+[data-theme="light"] .srv-card{border-color:rgba(0,0,0,.1)}
+
+/* ── Glassmorphism 2.0 ── */
+.srv-card,.project-card,.tcard,.hcard{
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+}
+/* Dark: inner glow stroke */
+.srv-card,.project-card,.tcard{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 2px 14px rgba(0,0,0,.26);
+}
+/* Light: frosted surface */
+[data-theme="light"] .srv-card,[data-theme="light"] .project-card,[data-theme="light"] .tcard{
+  background:rgba(255,255,255,.78);
+  box-shadow:0 4px 28px rgba(0,0,0,.07),0 1px 4px rgba(0,0,0,.04),inset 0 1px 0 rgba(255,255,255,1);
+}
+[data-theme="light"] .results-box{
+  background:rgba(255,255,255,.82);
+  box-shadow:0 6px 32px rgba(0,0,0,.07),0 1px 4px rgba(0,0,0,.04);
+}
+
+/* ── Spring micro-interactions — cubic-bezier(.34,1.56,.64,1) ── */
+.btn:hover,.btn-cyan:hover,.btn-outline:hover,.nav-btn:hover,.mob-cta:hover{
+  transform:translateY(-3px);
+  transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .2s,box-shadow .3s,border-color .25s,color .25s;
+}
+.btn:active,.btn-cyan:active,.btn-outline:active,.nav-btn:active,.mob-cta:active{
+  transform:scale(.95);
+  transition:transform .09s ease;
+}
+.filter-btn:hover{
+  transform:translateY(-2px) scale(1.04);
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1),all .25s;
+}
+.filter-btn:active{transform:scale(.92);transition:transform .08s ease}
+.foot-social-icon:hover,.mob-social-link:hover{
+  transform:translateY(-3px) scale(1.1);
+  transition:transform .42s cubic-bezier(.34,1.56,.64,1),border-color .25s;
+}
+.tech-tag:hover{
+  transform:translateY(-2px) scale(1.05);
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1),border-color .25s,color .25s,background .25s;
+}
+.tech-tag:active{transform:scale(.92);transition:transform .08s ease}
+.ts-bubble:hover{transform:translateY(-10px) scale(1.04)!important;transition:transform .45s cubic-bezier(.34,1.56,.64,1)!important}
+.ts-bubble:active{transform:translateY(-4px) scale(.95)!important;transition:transform .09s ease!important}
+/* Mobile / touch active states */
+@media(hover:none){
+  .btn:active,.btn-cyan:active,.mob-cta:active{transform:scale(.92);transition:transform .08s ease}
+  .hamburger:active,.theme-toggle:active,.theme-fab:active{transform:scale(.88);transition:transform .08s ease}
+  .filter-btn:active,.tech-tag:active{transform:scale(.89);transition:transform .08s ease}
+}
+
+/* ── Bottom-right control hub: perfect 8px gap stack ── */
+.btt{bottom:24px;right:24px;z-index:901}
+.theme-fab{bottom:80px;right:24px;z-index:902}
+
+/* ── Typography: 1.8 line-height across all body copy ── */
+.hero-desc,.sec-desc,.about-copy p,.srv-d,.proc-desc,.ttext,.faq-a,.cta-sub,.ts-pane-desc,.rnum-l{line-height:1.8}
+
 </style>
 </head>
 <body>
+<canvas id="neural-bg" aria-hidden="true"></canvas>
 <div id="cur"></div>
 <div id="cur-ring"></div>
 <div class="noise"></div>
@@ -1734,27 +1826,83 @@ filterBtns.forEach(btn => {
   initSpot('.cc');
 })();
 
-// ── MAGNETIC PULL on hero + CTA primary buttons ──
+// ── NEURAL NETWORK CANVAS ──
 (function(){
-  if(!window.matchMedia('(hover:hover)').matches) return;
-  document.querySelectorAll('.hero-actions .btn-cyan, .cta-btns .btn-cyan').forEach(btn=>{
-    let raf;
-    btn.addEventListener('mousemove',e=>{
-      cancelAnimationFrame(raf);
-      raf=requestAnimationFrame(()=>{
-        const r=btn.getBoundingClientRect();
-        const dx=(e.clientX-r.left-r.width/2)*.16;
-        const dy=(e.clientY-r.top-r.height/2)*.16;
-        btn.style.transform=`translate(${dx}px,${dy}px) translateY(-2px)`;
-      });
+  const canvas=document.getElementById('neural-bg');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let W,H,pts=[],mouse={x:-999,y:-999};
+  const N=()=>window.innerWidth>900?64:28;
+  const D=()=>window.innerWidth>900?160:100;
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+  function mkPt(){return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:Math.random()*1.4+.5}}
+  function isLight(){return document.documentElement.getAttribute('data-theme')==='light'}
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    const light=isLight();
+    const nc=light?'rgba(0,90,130,':'rgba(0,229,255,';
+    const dist=D();
+    for(let i=0;i<pts.length;i++){
+      const p=pts[i];
+      // gentle mouse repel
+      const mdx=p.x-mouse.x,mdy=p.y-mouse.y;
+      const md=Math.sqrt(mdx*mdx+mdy*mdy);
+      if(md<170&&md>0){const f=(170-md)/170*.35;p.x+=mdx/md*f;p.y+=mdy/md*f}
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      for(let j=i+1;j<pts.length;j++){
+        const q=pts[j];
+        const dx=p.x-q.x,dy=p.y-q.y;
+        const d=Math.sqrt(dx*dx+dy*dy);
+        if(d<dist){
+          ctx.strokeStyle=nc+((1-d/dist)*.15)+')';
+          ctx.lineWidth=.65;
+          ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();
+        }
+      }
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=nc+'0.3)';ctx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+  resize();
+  const n=N();
+  for(let i=0;i<n;i++)pts.push(mkPt());
+  frame();
+  window.addEventListener('resize',()=>{resize();pts=[];const n=N();for(let i=0;i<n;i++)pts.push(mkPt())},{passive:true});
+  document.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY},{passive:true});
+  // gyro drift for mobile
+  window.addEventListener('deviceorientation',e=>{
+    if(e.gamma!=null){mouse.x=W/2+(e.gamma/45)*W*.3;mouse.y=H/2+(e.beta/90)*H*.3}
+  },{passive:true});
+})();
+
+// ── PROXIMITY MAGNETIC BUTTONS ──
+(function(){
+  if(!window.matchMedia('(hover:hover)').matches)return;
+  const magnets=[...document.querySelectorAll('.btn-cyan,.nav-btn')];
+  const active=new Set();
+  document.addEventListener('mousemove',e=>{
+    magnets.forEach(btn=>{
+      const r=btn.getBoundingClientRect();
+      if(!r.width)return;
+      const cx=r.left+r.width/2,cy=r.top+r.height/2;
+      const dx=e.clientX-cx,dy=e.clientY-cy;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      const R=100;
+      if(dist<R){
+        const s=(1-dist/R)*.28;
+        btn.style.transition='transform .12s ease';
+        btn.style.transform=`translate(${dx*s}px,${dy*s}px)`;
+        active.add(btn);
+      } else if(active.has(btn)){
+        btn.style.transition='transform .55s cubic-bezier(.34,1.56,.64,1)';
+        btn.style.transform='';
+        active.delete(btn);
+      }
     });
-    btn.addEventListener('mouseleave',()=>{
-      cancelAnimationFrame(raf);
-      btn.style.transition='transform .5s cubic-bezier(.4,0,.2,1)';
-      btn.style.transform='';
-      setTimeout(()=>btn.style.transition='',500);
-    });
-  });
+  },{passive:true});
 })();
 </script>
 </body>
