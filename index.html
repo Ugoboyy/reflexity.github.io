@@ -40,8 +40,8 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;font-size:clamp(15px,0
 }
 /* ── LIGHT THEME OVERRIDES ── */
 [data-theme="light"]{
-  --bg:#F9F8F6;--s1:#FFFFFF;--s2:#F1F0EE;--s3:#E8E7E4;
-  --border:rgba(0,0,0,.09);--border2:rgba(0,0,0,.16);
+  --bg:#F5F4F0;--s1:#FFFFFF;--s2:#EEEDE9;--s3:#E5E4DF;
+  --border:rgba(0,0,0,.08);--border2:rgba(0,0,0,.14);
   --white:#1A1A1A;--off:#2A2A2A;--muted:#2D2D2D;--muted2:rgba(0,0,0,.68);
 }
 
@@ -110,17 +110,17 @@ body.menu-open .ham-line-3{transform:translateY(-6.5px) rotate(-45deg)}
 body.menu-open .hamburger{border-color:rgba(0,229,255,.5)}
 
 /* MOBILE MENU */
-.mobile-menu{position:fixed;inset:0;z-index:150;background:rgba(6,6,8,.93);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.4,0,.2,1);padding-top:clamp(70px,13vh,90px);overflow-y:auto}
+.mobile-menu{position:fixed;inset:0;z-index:150;background:rgba(6,6,8,.93);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
 body.menu-open .mobile-menu{opacity:1;pointer-events:all}
 .mobile-menu-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(0,229,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.025) 1px,transparent 1px);background-size:60px 60px}
-.mob-nav-links{list-style:none;display:flex;flex-direction:column;align-items:stretch;gap:0;width:100%;padding:0 clamp(24px,7vw,48px)}
+.mob-nav-links{list-style:none;display:flex;flex-direction:column;align-items:stretch;gap:0;width:100%;padding:clamp(80px,13vh,100px) clamp(24px,7vw,48px) 0}
 .mob-nav-links li{width:100%;overflow:hidden}
 .mob-nav-links a{display:flex;align-items:center;justify-content:space-between;padding:clamp(18px,3vh,22px) 0;font-family:var(--sans);font-size:clamp(17px,4.8vw,22px);font-weight:500;color:var(--muted2);letter-spacing:-.01em;border-bottom:1px solid rgba(255,255,255,.07);transition:color .2s}
 .mob-nav-links a:hover,.mob-nav-links a:active{color:var(--white)}
 .mob-num{font-family:var(--mono);font-size:11px;font-weight:400;color:var(--cyan);letter-spacing:.1em;opacity:.8}
-.mob-nav-bottom{margin-top:clamp(20px,4vh,36px);text-align:left;padding:0 clamp(24px,7vw,48px) clamp(24px,4vh,40px)}
-.mob-cta{display:inline-flex;align-items:center;gap:8px;background:var(--cyan);color:var(--bg);padding:14px 32px;border-radius:6px;font-size:15px;font-weight:700;letter-spacing:.02em;box-shadow:0 0 40px rgba(0,229,255,.3)}
-.mob-social-row{display:flex;gap:14px;justify-content:flex-start;margin-top:clamp(16px,3vh,24px);flex-wrap:wrap}
+.mob-nav-bottom{padding:clamp(24px,4vh,40px) clamp(24px,7vw,48px);display:flex;flex-direction:column;align-items:center;gap:0}
+.mob-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--cyan);color:var(--bg);padding:14px 32px;border-radius:6px;font-size:15px;font-weight:700;letter-spacing:.02em;box-shadow:0 0 40px rgba(0,229,255,.3);width:100%}
+.mob-social-row{display:flex;gap:14px;justify-content:center;margin-top:clamp(16px,2.5vh,22px);flex-wrap:wrap}
 .mob-social-link{width:42px;height:42px;border:1px solid var(--border2);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:border-color .2s}
 .mob-social-link:hover{border-color:rgba(0,229,255,.4)}
 .mob-social-link svg{width:18px;height:18px}
@@ -557,6 +557,33 @@ h2{font-family:var(--sans);font-size:clamp(26px,4vw + 0.3rem,54px);font-weight:8
 .ts-feat-icon{font-size:clamp(16px,1.5vw,20px);flex-shrink:0}
 .ts-feat-text{font-size:clamp(12px,0.9vw,13.5px);color:var(--off);font-weight:400}
 
+/* ── TECH STACK CATEGORY SYSTEM ── */
+/* Category selector row */
+.ts-cat-row{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(7px,0.9vw,12px);margin-bottom:clamp(24px,3.5vw,40px)}
+@media(max-width:640px){
+  .ts-cat-row{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x mandatory;padding:4px 16px}
+  .ts-cat-row::-webkit-scrollbar{display:none}
+}
+.ts-cat-btn{display:inline-flex;align-items:center;gap:8px;padding:clamp(9px,1.1vw,13px) clamp(14px,1.6vw,20px);background:var(--s1);border:1px solid var(--border);border-radius:var(--r-md);font-family:var(--sans);font-size:clamp(12px,0.9vw,13.5px);font-weight:600;color:var(--muted2);letter-spacing:-.01em;cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);scroll-snap-align:start;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+.ts-cat-btn:hover{border-color:rgba(0,229,255,.3);color:var(--white);background:var(--s2)}
+.ts-cat-btn.active{border-color:var(--cat-color,var(--cyan));color:var(--cat-color,var(--cyan));background:var(--s2);box-shadow:0 0 22px var(--cat-glow,rgba(0,229,255,.15))}
+.ts-cat-emoji{font-size:clamp(15px,1.3vw,18px);line-height:1}
+
+/* Sub-technology bubble row */
+.ts-sub-bubbles{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(16px,2.2vw,30px);margin-bottom:clamp(28px,4vw,48px);min-height:clamp(100px,12vw,150px)}
+@media(max-width:640px){
+  .ts-sub-bubbles{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x mandatory;padding:8px 16px}
+  .ts-sub-bubbles::-webkit-scrollbar{display:none}
+}
+
+/* Pop-in animation for sub-bubbles on category switch */
+@keyframes popIn{
+  0%{opacity:0;transform:scale(.4) translateY(12px)}
+  65%{transform:scale(1.08) translateY(-3px)}
+  100%{opacity:1;transform:scale(1) translateY(0)}
+}
+.ts-bubble.pop{animation:popIn .42s cubic-bezier(.34,1.56,.64,1) both}
+
 /* ── SERVICE CARD GLOW ── */
 .srv-card{--srv-glow:rgba(0,229,255,.18)}
 .srv-card:nth-child(1){--srv-glow:rgba(0,229,255,.2)}
@@ -642,8 +669,8 @@ footer{border-top:1px solid var(--border);padding:clamp(24px,3vw,32px) 0;positio
 [data-theme="light"] .o3{background:rgba(0,229,255,.05)}
 [data-theme="light"] .grid-bg{
   background-image:linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px)}
-[data-theme="light"] nav.scrolled{background:rgba(249,248,246,.93);box-shadow:0 4px 30px rgba(0,0,0,.07)}
-[data-theme="light"] .mobile-menu{background:rgba(249,248,246,.97)}
+[data-theme="light"] nav.scrolled{background:rgba(245,244,240,.93);box-shadow:0 4px 30px rgba(0,0,0,.07)}
+[data-theme="light"] .mobile-menu{background:rgba(245,244,240,.97)}
 [data-theme="light"] .mobile-menu-grid{background-image:linear-gradient(rgba(0,0,0,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.03) 1px,transparent 1px)}
 [data-theme="light"] .mob-nav-links a{border-bottom-color:rgba(0,0,0,.07);color:var(--muted)}
 [data-theme="light"] .mob-nav-links a:hover,[data-theme="light"] .mob-nav-links a:active{color:var(--cyan)}
@@ -731,7 +758,7 @@ footer{border-top:1px solid var(--border);padding:clamp(24px,3vw,32px) 0;positio
 [data-theme="light"] .ts-pane-desc{font-weight:400;line-height:1.9}
 
 /* Mobile theme toggle in menu */
-.mob-theme-toggle{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:20px}
+.mob-theme-toggle{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:clamp(14px,2.5vh,20px)}
 .mob-theme-toggle .theme-toggle{width:44px;height:44px}
 .mob-theme-label{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
 
@@ -855,7 +882,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
 .reveal.visible{opacity:1;transform:translateY(0) scale(1)}
 
 /* ── MOBILE MENU LIGHT MODE FIX (fully opaque) ── */
-[data-theme="light"] .mobile-menu{background:rgba(249,248,246,.99)!important}
+[data-theme="light"] .mobile-menu{background:rgba(245,244,240,.99)!important}
 
 /* ── Mobile menu link hover slide ── */
 .mob-nav-links a{transition:color .22s,padding-left .28s cubic-bezier(.4,0,.2,1)}
@@ -871,7 +898,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
   box-shadow:0 4px 24px rgba(0,0,0,.07),inset 0 1px 0 rgba(255,255,255,.9);
 }
 [data-theme="light"] footer{
-  background:rgba(249,248,246,.88);
+  background:rgba(245,244,240,.88);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
 }
 [data-theme="light"] .btn-outline:hover{
@@ -1199,12 +1226,6 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
         <p class="reveal d2">I build <strong>practical, production-ready AI systems</strong> for businesses that want real results. I combine deep technical ability with a clear understanding of how businesses actually operate.</p>
         <p class="reveal d3">Whether you need a <strong>chatbot that handles customer questions 24/7</strong>, an automation that eliminates 10 hours of manual work per week, or a custom LLM tool your team can actually use — I deliver it fast, clean, and built to last.</p>
         <p class="reveal d4">I work with <strong>small businesses, startups, coaches, agencies, and e-commerce brands</strong> who are ready to treat AI as a competitive advantage, not a buzzword.</p>
-        <div class="tag-cloud reveal">
-          <span class="tech-tag">OpenAI API</span><span class="tech-tag">Claude API</span><span class="tech-tag">n8n</span>
-          <span class="tech-tag">Make</span><span class="tech-tag">LangChain</span><span class="tech-tag">Pinecone</span>
-          <span class="tech-tag">RAG</span><span class="tech-tag">Python</span><span class="tech-tag">JavaScript</span>
-          <span class="tech-tag">Flowise</span><span class="tech-tag">Voiceflow</span><span class="tech-tag">Zapier</span>
-        </div>
       </div>
     </div>
   </div>
@@ -1237,9 +1258,10 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
     <div class="ts-head">
       <div class="eyebrow reveal">Tech Stack</div>
       <h2 class="reveal d1">Tools &amp; technologies<br>I <span class="hl">build with</span></h2>
-      <p class="sec-desc reveal d2" style="margin:0 auto;text-align:center">Click any technology to learn how I use it to deliver real results.</p>
+      <p class="sec-desc reveal d2" style="margin:0 auto;text-align:center">Select a category, then click any technology to see exactly how I use it.</p>
     </div>
-    <div class="ts-bubbles reveal" id="tsBubbles"></div>
+    <div class="ts-cat-row reveal" id="tsCatRow"></div>
+    <div class="ts-sub-bubbles" id="tsSubBubbles"></div>
     <div class="ts-content reveal d2" id="tsContent"></div>
   </div>
 </section>
@@ -1682,7 +1704,7 @@ filterBtns.forEach(btn => {
   });
 });
 
-// ── INTERACTIVE TECH STACK ──
+// ── INTERACTIVE TECH STACK (CATEGORIZED) ──
 (function(){
   const svgs = {
     python:'<svg viewBox="0 0 256 255" fill="none"><defs><linearGradient id="pyA" x1="12.96" y1="12.78" x2="131.97" y2="132.76" gradientUnits="userSpaceOnUse"><stop stop-color="#387EB8"/><stop offset="1" stop-color="#366994"/></linearGradient><linearGradient id="pyB" x1="124.03" y1="122.22" x2="243.04" y2="242.22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFE052"/><stop offset="1" stop-color="#FFC331"/></linearGradient></defs><path d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072zM92.802 19.66a11.12 11.12 0 110 22.24 11.12 11.12 0 010-22.24z" fill="url(#pyA)"/><path d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.52 33.897zm34.114-19.586a11.12 11.12 0 110-22.24 11.12 11.12 0 010 22.24z" fill="url(#pyB)"/></svg>',
@@ -1698,106 +1720,67 @@ filterBtns.forEach(btn => {
     chromadb:'<svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="4" fill="#FF6B6B" opacity=".8"/><circle cx="16" cy="8" r="4" fill="#4ECDC4" opacity=".8"/><circle cx="12" cy="15" r="4" fill="#FFE66D" opacity=".8"/></svg>',
     make:'<svg viewBox="0 0 24 24" fill="#6C48C9"><circle cx="12" cy="12" r="10" fill="none" stroke="#6C48C9" stroke-width="2"/><circle cx="8" cy="12" r="2" fill="#6C48C9"/><circle cx="16" cy="12" r="2" fill="#6C48C9"/><path d="M10 12h4" stroke="#6C48C9" stroke-width="1.5"/></svg>'
   };
-  const stack = [
-    {id:'python',svg:svgs.python,label:'Python',color:'#3776AB',
-     title:'Python',badge:'Core Language',
-     desc:'My primary backend language. I use Python for building production AI tools, LLM integrations, data pipelines, and automation scripts that power real business workflows.',
-     features:['LLM orchestration with LangChain & OpenAI SDK','FastAPI microservices & REST APIs','Data processing & ETL pipelines','Custom AI model wrappers & agents']},
-    {id:'javascript',svg:svgs.javascript,label:'JavaScript',color:'#F7DF1E',
-     title:'JavaScript',badge:'Full-Stack',
-     desc:'I build fast, interactive frontends and Node.js backends. From React dashboards to serverless functions — JavaScript powers the interface layer of every project.',
-     features:['React & Next.js dashboards','Node.js serverless functions','Real-time WebSocket integrations','Chrome extensions & browser tools']},
-    {id:'openai',svg:svgs.openai,label:'OpenAI',color:'#00A67E',
-     title:'OpenAI API',badge:'LLM Provider',
-     desc:'GPT-4, GPT-4o, and Whisper power the intelligence behind my chatbots, content generators, and document parsers. Fine-tuned prompts, function calling, and assistants API.',
-     features:['GPT-4o for reasoning & generation','Assistants API with custom tools','Whisper for speech-to-text','Embeddings for semantic search']},
-    {id:'claude',svg:svgs.claude,label:'Claude',color:'#D4A574',
-     title:'Claude API',badge:'LLM Provider',
-     desc:'Anthropic\'s Claude handles long-context analysis, structured output, and nuanced content creation. Ideal for document-heavy RAG systems and multi-step reasoning.',
-     features:['200K token context window','Structured JSON output','Document analysis & summarization','Complex reasoning chains']},
-    {id:'n8n',svg:svgs.n8n,label:'n8n',color:'#EA4B71',
-     title:'n8n',badge:'Automation Engine',
-     desc:'Self-hosted workflow automation that connects any API. I build complex multi-step automations with AI nodes, conditional logic, and real-time triggers.',
-     features:['Self-hosted for full data control','400+ native integrations','AI-powered decision nodes','Webhook & cron triggers']},
-    {id:'langchain',svg:svgs.langchain,label:'LangChain',color:'#00C48C',
-     title:'LangChain',badge:'AI Framework',
-     desc:'The orchestration layer for RAG pipelines, agent systems, and retrieval-augmented generation. I use LangChain to build AI tools that reason over your data.',
-     features:['RAG document Q&A systems','Multi-agent orchestration','Custom tool & function chains','Memory-enabled conversations']},
-    {id:'crewai',svg:svgs.crewai,label:'CrewAI',color:'#FF6154',
-     title:'CrewAI',badge:'AI Agents',
-     desc:'Multi-agent orchestration framework that lets autonomous AI agents collaborate on complex tasks. I use CrewAI to build teams of specialized agents that work together.',
-     features:['Multi-agent task delegation','Role-based agent specialization','Autonomous workflow execution','Complex reasoning pipelines']},
-    {id:'react',svg:svgs.react,label:'React',color:'#61DAFB',
-     title:'React & Next.js',badge:'Frontend Framework',
-     desc:'Modern, responsive dashboards and web applications. Server-side rendering, edge functions, and seamless deployment — the complete frontend stack.',
-     features:['Server-side rendering with Next.js','Real-time data dashboards','Component-driven architecture','Vercel edge deployment']},
-    {id:'supabase',svg:svgs.supabase,label:'Supabase',color:'#3ECF8E',
-     title:'Supabase',badge:'Backend-as-a-Service',
-     desc:'Open-source Firebase alternative. Postgres database, auth, real-time subscriptions, and storage — the backbone for every SaaS and data-driven project.',
-     features:['Postgres with row-level security','Real-time subscriptions','Built-in auth & storage','Edge functions & webhooks']},
-    {id:'pinecone',svg:svgs.pinecone,label:'Pinecone',color:'#007AFF',
-     title:'Pinecone',badge:'Vector Database',
-     desc:'High-performance vector database for semantic search and RAG. I store embeddings here so AI tools can retrieve the most relevant context in milliseconds.',
-     features:['Semantic similarity search','Billion-scale vector storage','Metadata filtering','RAG retrieval backbone']},
-    {id:'chromadb',svg:svgs.chromadb,label:'ChromaDB',color:'#FF6B6B',
-     title:'ChromaDB',badge:'Vector Database',
-     desc:'Open-source embedding database for AI applications. ChromaDB powers local-first RAG systems with fast similarity search and seamless Python integration.',
-     features:['Open-source & self-hosted','Python-native integration','In-memory & persistent modes','Lightweight embedding storage']},
-    {id:'make',svg:svgs.make,label:'Make',color:'#6C48C9',
-     title:'Make (Integromat)',badge:'Automation Platform',
-     desc:'Visual automation platform for complex business workflows. Multi-branch scenarios, error handling, and 1,000+ app integrations — all without code.',
-     features:['Visual workflow builder','1,000+ app connectors','AI module integration','Advanced error handling']}
+
+  // Full tech data (reused by categories)
+  const techData = {
+    python:{svg:svgs.python,label:'Python',color:'#3776AB',title:'Python',badge:'Core Language',
+      desc:'My primary backend language. I use Python for building production AI tools, LLM integrations, data pipelines, and automation scripts that power real business workflows.',
+      features:['LLM orchestration with LangChain & OpenAI SDK','FastAPI microservices & REST APIs','Data processing & ETL pipelines','Custom AI model wrappers & agents']},
+    javascript:{svg:svgs.javascript,label:'JavaScript',color:'#F7DF1E',title:'JavaScript',badge:'Full-Stack',
+      desc:'I build fast, interactive frontends and Node.js backends. From React dashboards to serverless functions — JavaScript powers the interface layer of every project.',
+      features:['React & Next.js dashboards','Node.js serverless functions','Real-time WebSocket integrations','Chrome extensions & browser tools']},
+    openai:{svg:svgs.openai,label:'OpenAI',color:'#00A67E',title:'OpenAI API',badge:'LLM Provider',
+      desc:'GPT-4, GPT-4o, and Whisper power the intelligence behind my chatbots, content generators, and document parsers. Fine-tuned prompts, function calling, and assistants API.',
+      features:['GPT-4o for reasoning & generation','Assistants API with custom tools','Whisper for speech-to-text','Embeddings for semantic search']},
+    claude:{svg:svgs.claude,label:'Claude',color:'#D4A574',title:'Claude API',badge:'LLM Provider',
+      desc:"Anthropic's Claude handles long-context analysis, structured output, and nuanced content creation. Ideal for document-heavy RAG systems and multi-step reasoning.",
+      features:['200K token context window','Structured JSON output','Document analysis & summarization','Complex reasoning chains']},
+    langchain:{svg:svgs.langchain,label:'LangChain',color:'#00C48C',title:'LangChain',badge:'AI Framework',
+      desc:'The orchestration layer for RAG pipelines, agent systems, and retrieval-augmented generation. I use LangChain to build AI tools that reason over your data.',
+      features:['RAG document Q&A systems','Multi-agent orchestration','Custom tool & function chains','Memory-enabled conversations']},
+    crewai:{svg:svgs.crewai,label:'CrewAI',color:'#FF6154',title:'CrewAI',badge:'Agent Framework',
+      desc:'Multi-agent orchestration framework that lets autonomous AI agents collaborate on complex tasks. I use CrewAI to build teams of specialized agents that work together.',
+      features:['Multi-agent task delegation','Role-based agent specialization','Autonomous workflow execution','Complex reasoning pipelines']},
+    pinecone:{svg:svgs.pinecone,label:'Pinecone',color:'#007AFF',title:'Pinecone',badge:'Vector Database',
+      desc:'High-performance vector database for semantic search and RAG. I store embeddings here so AI tools can retrieve the most relevant context in milliseconds.',
+      features:['Semantic similarity search','Billion-scale vector storage','Metadata filtering','RAG retrieval backbone']},
+    chromadb:{svg:svgs.chromadb,label:'ChromaDB',color:'#FF6B6B',title:'ChromaDB',badge:'Vector Database',
+      desc:'Open-source embedding database for AI applications. ChromaDB powers local-first RAG systems with fast similarity search and seamless Python integration.',
+      features:['Open-source & self-hosted','Python-native integration','In-memory & persistent modes','Lightweight embedding storage']},
+    n8n:{svg:svgs.n8n,label:'n8n',color:'#EA4B71',title:'n8n',badge:'Automation Engine',
+      desc:'Self-hosted workflow automation that connects any API. I build complex multi-step automations with AI nodes, conditional logic, and real-time triggers.',
+      features:['Self-hosted for full data control','400+ native integrations','AI-powered decision nodes','Webhook & cron triggers']},
+    make:{svg:svgs.make,label:'Make',color:'#6C48C9',title:'Make (Integromat)',badge:'Automation Platform',
+      desc:'Visual automation platform for complex business workflows. Multi-branch scenarios, error handling, and 1,000+ app integrations — all without code.',
+      features:['Visual workflow builder','1,000+ app connectors','AI module integration','Advanced error handling']},
+    react:{svg:svgs.react,label:'React',color:'#61DAFB',title:'React & Next.js',badge:'Frontend Framework',
+      desc:'Modern, responsive dashboards and web applications. Server-side rendering, edge functions, and seamless deployment — the complete frontend stack.',
+      features:['Server-side rendering with Next.js','Real-time data dashboards','Component-driven architecture','Vercel edge deployment']},
+    supabase:{svg:svgs.supabase,label:'Supabase',color:'#3ECF8E',title:'Supabase',badge:'Backend-as-a-Service',
+      desc:'Open-source Firebase alternative. Postgres database, auth, real-time subscriptions, and storage — the backbone for every SaaS and data-driven project.',
+      features:['Postgres with row-level security','Real-time subscriptions','Built-in auth & storage','Edge functions & webhooks']}
+  };
+
+  // Category definitions
+  const categories = [
+    {id:'languages', icon:'⌨️', label:'Languages',      color:'#3776AB', items:['python','javascript']},
+    {id:'llm',       icon:'🧠', label:'LLM Providers',  color:'#00A67E', items:['openai','claude']},
+    {id:'frameworks',icon:'⛓️', label:'AI Frameworks',  color:'#00C48C', items:['langchain','crewai']},
+    {id:'vectordb',  icon:'🗄️', label:'Vector Databases',color:'#007AFF', items:['pinecone','chromadb']},
+    {id:'automation',icon:'⚡', label:'Automation',     color:'#EA4B71', items:['n8n','make']},
+    {id:'frontend',  icon:'🖥️', label:'Frontend',       color:'#61DAFB', items:['react']},
+    {id:'backend',   icon:'🗃️', label:'Backend',        color:'#3ECF8E', items:['supabase']}
   ];
 
-  const bubblesEl = document.getElementById('tsBubbles');
+  const catRowEl  = document.getElementById('tsCatRow');
+  const subEl     = document.getElementById('tsSubBubbles');
   const contentEl = document.getElementById('tsContent');
-  if(!bubblesEl||!contentEl) return;
+  if(!catRowEl||!subEl||!contentEl) return;
 
-  // Build bubbles
-  stack.forEach((t,i)=>{
-    const b = document.createElement('div');
-    b.className = 'ts-bubble' + (i===0?' active':'');
-    b.dataset.idx = i;
-    b.style.setProperty('--ts-color',t.color);
-    const glowRgba = hexToRgba(t.color,0.2);
-    b.style.setProperty('--ts-glow',glowRgba);
-    b.innerHTML = `<div class="ts-bubble-icon">${t.svg}</div><span class="ts-bubble-label">${t.label}</span>`;
-    bubblesEl.appendChild(b);
-  });
+  let activeCatId  = categories[0].id;
+  let activeTechId = null;
 
-  // Build content panes
-  stack.forEach((t,i)=>{
-    const p = document.createElement('div');
-    p.className = 'ts-pane' + (i===0?' active':'');
-    p.dataset.idx = i;
-    const glowRgba = hexToRgba(t.color,0.08);
-    p.innerHTML = `
-      <div class="ts-pane-inner" style="--ts-glow:${glowRgba};--ts-color:${t.color}">
-        <div>
-          <div class="ts-pane-badge" style="color:${t.color};background:${hexToRgba(t.color,0.06)};border-color:${hexToRgba(t.color,0.15)}">${t.badge}</div>
-          <h3 class="ts-pane-title">${t.title}</h3>
-          <p class="ts-pane-desc">${t.desc}</p>
-        </div>
-        <div class="ts-features">
-          ${t.features.map(f=>`<div class="ts-feat"><span class="ts-feat-icon" style="color:${t.color}">›</span><span class="ts-feat-text">${f}</span></div>`).join('')}
-        </div>
-      </div>`;
-    contentEl.appendChild(p);
-  });
-
-  // Click handler
-  bubblesEl.addEventListener('click',e=>{
-    const bubble = e.target.closest('.ts-bubble');
-    if(!bubble) return;
-    const idx = bubble.dataset.idx;
-    bubblesEl.querySelectorAll('.ts-bubble').forEach(b=>b.classList.remove('active'));
-    bubble.classList.add('active');
-    contentEl.querySelectorAll('.ts-pane').forEach(p=>p.classList.remove('active'));
-    contentEl.querySelector(`.ts-pane[data-idx="${idx}"]`).classList.add('active');
-    // Scroll bubble into view on mobile
-    if(window.innerWidth<=640) bubble.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
-  });
-
+  // Helper
   function hexToRgba(hex,alpha){
     if(hex.startsWith('#')){
       const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
@@ -1805,7 +1788,106 @@ filterBtns.forEach(btn => {
     }
     return hex;
   }
+
+  // Build ALL content panes once (hidden by default)
+  Object.entries(techData).forEach(([id,t])=>{
+    const p=document.createElement('div');
+    p.className='ts-pane';
+    p.dataset.tech=id;
+    const glow=hexToRgba(t.color,.08);
+    p.innerHTML=`<div class="ts-pane-inner" style="--ts-glow:${glow};--ts-color:${t.color}">
+      <div>
+        <div class="ts-pane-badge" style="color:${t.color};background:${hexToRgba(t.color,.06)};border-color:${hexToRgba(t.color,.15)}">${t.badge}</div>
+        <h3 class="ts-pane-title">${t.title}</h3>
+        <p class="ts-pane-desc">${t.desc}</p>
+      </div>
+      <div class="ts-features">
+        ${t.features.map(f=>`<div class="ts-feat"><span class="ts-feat-icon" style="color:${t.color}">›</span><span class="ts-feat-text">${f}</span></div>`).join('')}
+      </div>
+    </div>`;
+    contentEl.appendChild(p);
+  });
+
+  // Build category buttons
+  categories.forEach(cat=>{
+    const btn=document.createElement('button');
+    btn.className='ts-cat-btn'+(cat.id===activeCatId?' active':'');
+    btn.dataset.catId=cat.id;
+    btn.style.setProperty('--cat-color',cat.color);
+    btn.style.setProperty('--cat-glow',hexToRgba(cat.color,.18));
+    btn.innerHTML=`<span class="ts-cat-emoji">${cat.icon}</span><span>${cat.label}</span>`;
+    catRowEl.appendChild(btn);
+  });
+
+  // Show sub-bubbles for given category, with staggered pop-in
+  function showSubBubbles(catId, selectFirst){
+    const cat=categories.find(c=>c.id===catId);
+    if(!cat) return;
+    // Clear existing
+    subEl.innerHTML='';
+    cat.items.forEach((techId,i)=>{
+      const t=techData[techId];
+      if(!t) return;
+      const b=document.createElement('div');
+      b.className='ts-bubble'+(techId===activeTechId?' active':'');
+      b.dataset.tech=techId;
+      b.style.setProperty('--ts-color',t.color);
+      b.style.setProperty('--ts-glow',hexToRgba(t.color,.2));
+      b.style.animationDelay=(i*70)+'ms';
+      b.innerHTML=`<div class="ts-bubble-icon">${t.svg}</div><span class="ts-bubble-label">${t.label}</span>`;
+      subEl.appendChild(b);
+      // Trigger pop-in after tiny delay so element is in DOM
+      requestAnimationFrame(()=>{ requestAnimationFrame(()=>{ b.classList.add('pop'); }); });
+    });
+    // Auto-select first tech in category
+    if(selectFirst||!cat.items.includes(activeTechId)){
+      activeTechId=cat.items[0];
+      showPane(activeTechId);
+      // Mark first bubble active after DOM settles
+      setTimeout(()=>{
+        subEl.querySelector(`.ts-bubble[data-tech="${activeTechId}"]`)?.classList.add('active');
+      },50);
+    }
+  }
+
+  // Show content pane for tech
+  function showPane(techId){
+    contentEl.querySelectorAll('.ts-pane').forEach(p=>p.classList.remove('active'));
+    const pane=contentEl.querySelector(`.ts-pane[data-tech="${techId}"]`);
+    if(pane) pane.classList.add('active');
+  }
+
+  // Category click handler
+  catRowEl.addEventListener('click',e=>{
+    const btn=e.target.closest('.ts-cat-btn');
+    if(!btn) return;
+    const catId=btn.dataset.catId;
+    if(catId===activeCatId) return;
+    activeCatId=catId;
+    activeTechId=null;
+    // Update button states
+    catRowEl.querySelectorAll('.ts-cat-btn').forEach(b=>{
+      b.classList.toggle('active',b.dataset.catId===catId);
+    });
+    showSubBubbles(catId,true);
+  });
+
+  // Sub-bubble click handler
+  subEl.addEventListener('click',e=>{
+    const bubble=e.target.closest('.ts-bubble');
+    if(!bubble) return;
+    const techId=bubble.dataset.tech;
+    activeTechId=techId;
+    subEl.querySelectorAll('.ts-bubble').forEach(b=>b.classList.remove('active'));
+    bubble.classList.add('active');
+    showPane(techId);
+    if(window.innerWidth<=640) bubble.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+  });
+
+  // Init: show first category
+  showSubBubbles(activeCatId,true);
 })();
+
 
 // ── CARD SPOTLIGHT — mouse-following radial highlight ──
 (function(){
