@@ -146,12 +146,26 @@ body.menu-open .mobile-menu{opacity:1;pointer-events:all}
 h1{font-family:var(--sans);font-size:clamp(32px,5.5vw + 0.5rem,72px);font-weight:800;line-height:1.04;letter-spacing:-.035em;color:var(--white);margin-bottom:clamp(16px,2.5vw,24px)}
 .hl{background:linear-gradient(90deg,var(--cyan),#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-desc{font-size:clamp(14px,1.1vw,16px);line-height:1.8;color:var(--muted);font-weight:300;max-width:min(480px,100%);margin-bottom:clamp(24px,4vw,40px)}
-.hero-actions{display:flex;align-items:center;gap:clamp(10px,1.5vw,16px);flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:clamp(11px,1.3vw,14px) clamp(20px,2.5vw,28px);border-radius:var(--r-sm);font-size:clamp(13px,0.95vw,14px);font-weight:600;font-family:var(--sans);letter-spacing:.02em;transition:all .25s cubic-bezier(.4,0,.2,1);will-change:transform}
-.btn-cyan{background:var(--cyan);color:var(--bg);box-shadow:0 0 30px rgba(0,229,255,.2)}
-.btn-cyan:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(0,229,255,.35)}
+.hero-actions{display:flex;align-items:center;gap:clamp(12px,1.6vw,20px);flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:clamp(13px,1.4vw,15px) clamp(22px,2.6vw,30px);border-radius:var(--r-sm);font-size:clamp(13px,0.95vw,14px);font-weight:700;font-family:var(--sans);letter-spacing:.02em;transition:all .28s cubic-bezier(.4,0,.2,1);will-change:transform;white-space:nowrap}
+/* Primary — brand gradient ("heavy", authoritative) */
+.btn-cyan{background:linear-gradient(135deg,#3b3bd4 0%,#7B3AED 55%,#CC44CC 100%);color:#fff;border:none;box-shadow:0 0 32px rgba(123,58,237,.28),0 4px 18px rgba(59,59,212,.18)}
+.btn-cyan:hover{transform:translateY(-2px);box-shadow:0 0 52px rgba(123,58,237,.46),0 8px 28px rgba(59,59,212,.26)}
+/* Secondary — ghost / glassmorphism (lower commitment) */
+.btn-ghost{background:rgba(255,255,255,.06);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.22);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 8px 24px rgba(0,0,0,.2)}
+/* Light mode: primary stays gradient; ghost flips to deep obsidian ghost */
+[data-theme="light"] .btn-cyan{background:linear-gradient(135deg,#2a2ab8 0%,#6929D4 55%,#B033B8 100%);color:#fff;box-shadow:0 0 24px rgba(105,41,212,.2),0 4px 14px rgba(42,42,184,.14)}
+[data-theme="light"] .btn-ghost{background:rgba(26,26,26,.06);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(26,26,26,.2);color:#1A1A1A;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+[data-theme="light"] .btn-ghost:hover{background:rgba(26,26,26,.1);border-color:rgba(26,26,26,.36);color:#000;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 6px 18px rgba(0,0,0,.08)}
+/* Keep .btn-outline working elsewhere unchanged */
 .btn-outline{background:transparent;border:1px solid var(--border2);color:var(--off)}
 .btn-outline:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 20px rgba(0,229,255,.1)}
+/* Mobile: stack buttons vertically, primary on top */
+@media(max-width:560px){
+  .hero-actions,.cta-btns{flex-direction:column;align-items:stretch;gap:12px}
+  .hero-actions .btn,.cta-btns .btn{justify-content:center;width:100%}
+}
 
 /* HERO CARDS */
 .hero-visual{position:relative;height:clamp(260px,40vw,480px);display:none}
@@ -1123,8 +1137,8 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
         <h1 class="reveal d1">AI Systems That<br><span class="hl">Work While<br>You Sleep</span></h1>
         <p class="hero-desc reveal d2">I build production-ready AI tools — intelligent chatbots, workflow automations, and custom LLM systems — for businesses ready to stop doing things manually.</p>
         <div class="hero-actions reveal d3">
-          <a href="#contact" class="btn btn-cyan">Book Free AI Audit →</a>
-          <a href="#portfolio" class="btn btn-outline">See Selected Work</a>
+          <a href="https://calendly.com/hello-reflexity/free-auditcall" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Book Free AI Audit →</a>
+          <a href="https://reflexity-gap-scanner.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Get Free Gap Report in 60s</a>
         </div>
       </div>
       <div class="hero-visual reveal d4">
@@ -1509,8 +1523,8 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
       <h2 class="cta-title reveal d1">Ready to put AI<br>to work for <span class="hl">your business?</span></h2>
       <p class="cta-sub reveal d2">Book a free 20-minute AI Audit. I'll identify exactly where AI can save you time or make you money — completely free, zero obligation, zero pitch.</p>
       <div class="cta-btns reveal d3">
-        <a href="/cdn-cgi/l/email-protection#a1c9c4cdcdcee1d3c4c7cdc4d9c8d5d88fc5c4d7" class="btn btn-cyan">Book Your Free Audit →</a>
-        <a href="#portfolio" class="btn btn-outline">See Selected Work</a>
+        <a href="https://calendly.com/hello-reflexity/free-auditcall" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Book Your Free Audit →</a>
+        <a href="https://reflexity-gap-scanner.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Get Free Gap Report in 60s</a>
       </div>
 
     </div>
