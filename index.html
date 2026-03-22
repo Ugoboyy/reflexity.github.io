@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reflexity. — AI Engineer & Automation Specialist</title>
+<title>Reflexity — AI Engineer & Automation Specialist</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23060608'/%3E%3Crect x='3' y='4' width='3' height='24' rx='1' fill='%2300e5ff'/%3E%3Crect x='3' y='4' width='7' height='3' rx='1' fill='%2300e5ff'/%3E%3Crect x='3' y='25' width='7' height='3' rx='1' fill='%2300e5ff'/%3E%3Crect x='26' y='4' width='3' height='24' rx='1' fill='%2300e5ff'/%3E%3Crect x='22' y='4' width='7' height='3' rx='1' fill='%2300e5ff'/%3E%3Crect x='22' y='25' width='7' height='3' rx='1' fill='%2300e5ff'/%3E%3Crect x='14' y='4' width='4' height='24' rx='2' fill='%237B3AED'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
 <script>
@@ -82,11 +83,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:clamp(12px,2vw,20px)
 nav.scrolled{background:rgba(6,6,8,.92);backdrop-filter:blur(24px);padding:clamp(8px,1.2vw,13px) 0;border-bottom-color:var(--border);box-shadow:0 4px 30px rgba(0,0,0,.25)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:clamp(12px,2vw,24px)}
 
-/* LOGO — Orbitron, no blinking dot, dot inside bracket */
+/* LOGO — Orbitron, gradient name, no dot */
 .logo{display:flex;align-items:center;font-family:var(--orb);font-size:15px;font-weight:700;letter-spacing:.05em;color:var(--white);white-space:nowrap;text-transform:uppercase;gap:0}
-.logo-bracket{color:var(--cyan);font-weight:600;opacity:.6;font-size:17px;line-height:1}
-.logo-name{color:var(--white)}
-.logo-dot{color:var(--cyan);font-weight:800;text-shadow:0 0 8px rgba(0,229,255,.6)}
+.logo-bracket{color:var(--cyan);font-weight:700;font-size:17px;line-height:1}
+.logo-name{background:linear-gradient(90deg,#3b3bd4 0%,#7B3AED 50%,#CC44CC 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
 
 .nav-links{display:flex;gap:0;list-style:none;align-items:center}
 .nav-links a{color:var(--muted);font-size:clamp(12px,0.85vw,13px);font-weight:400;letter-spacing:.04em;padding:8px clamp(10px,1.2vw,16px);border-radius:var(--r-sm);transition:color .3s cubic-bezier(.4,0,.2,1),background .3s;display:block;position:relative}
@@ -279,8 +279,8 @@ h2{font-family:var(--sans);font-size:clamp(26px,4vw + 0.3rem,54px);font-weight:8
 .portfolio-grid{display:grid;grid-template-columns:1fr;gap:clamp(14px,1.8vw,20px)}
 @media(min-width:640px){.portfolio-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.portfolio-grid{grid-template-columns:repeat(3,1fr)}}
-.project-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;transition:border-color .3s,transform .3s cubic-bezier(.4,0,.2,1),opacity .4s,box-shadow .3s}
-.project-card:hover{border-color:rgba(0,229,255,.3);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.3)}
+.project-card{background:var(--s1);border:1px solid var(--border);border-radius:24px;overflow:hidden;transition:border-color .3s,transform .35s cubic-bezier(.34,1.56,.64,1),opacity .4s,box-shadow .3s}
+.project-card:hover{border-color:rgba(0,229,255,.3);transform:translateY(-4px) scale(1.02);box-shadow:0 20px 60px rgba(0,0,0,.3)}
 .project-card.hidden{display:none}
 .project-img{height:clamp(160px,18vw,200px);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .project-img-bg{position:absolute;inset:0;z-index:0;transition:transform .4s ease}
@@ -674,9 +674,7 @@ footer{border-top:1px solid var(--border);padding:clamp(24px,3vw,32px) 0;positio
 [data-theme="light"] .mobile-menu-grid{background-image:linear-gradient(rgba(0,0,0,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.03) 1px,transparent 1px)}
 [data-theme="light"] .mob-nav-links a{border-bottom-color:rgba(0,0,0,.07);color:var(--muted)}
 [data-theme="light"] .mob-nav-links a:hover,[data-theme="light"] .mob-nav-links a:active{color:var(--cyan)}
-[data-theme="light"] .logo-name{color:var(--white)}
 [data-theme="light"] .logo-bracket{color:var(--cyan)}
-[data-theme="light"] .logo-dot{color:var(--cyan)}
 [data-theme="light"] #cur{background:var(--cyan)}
 [data-theme="light"] #cur-ring{border-color:rgba(0,229,255,.5)}
 /* Hero */
@@ -1007,6 +1005,15 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
 /* ── Typography: 1.8 line-height across all body copy ── */
 .hero-desc,.sec-desc,.about-copy p,.srv-d,.proc-desc,.ttext,.faq-a,.cta-sub,.ts-pane-desc,.rnum-l{line-height:1.8}
 
+/* ── Mobile Bold Typography ── */
+@media(max-width:640px){
+  html{font-size:16px}
+  body{font-weight:400}
+  .project-desc,.sec-desc,.proc-desc,.ttext,.ts-pane-desc,.about-copy p,.srv-d{font-size:clamp(14px,3.8vw,16px);font-weight:400}
+  .mob-nav-links a{font-size:clamp(22px,5.8vw,28px);font-weight:700}
+  .project-title,.proc-title,.ts-pane-title{font-weight:800}
+}
+
 </style>
 </head>
 <body>
@@ -1065,7 +1072,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
   <div class="wrap">
     <div class="nav-inner">
       <a href="#hero" class="logo">
-        <span class="logo-bracket">[</span><span class="logo-name">Reflexity</span><span class="logo-dot">.</span><span class="logo-bracket">]</span>
+        <span class="logo-bracket">[</span><span class="logo-name">Reflexity</span><span class="logo-bracket">]</span>
       </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -1275,8 +1282,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
       <p class="sec-desc reveal d2" style="margin:0 auto;text-align:center">A selection of AI tools and automations I've built for real businesses — delivering measurable impact.</p>
     </div>
     <div class="filter-btns reveal">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="ai-tools">AI Tools</button>
+      <button class="filter-btn active" data-filter="ai-tools">AI Tools</button>
       <button class="filter-btn" data-filter="automation">Automation</button>
       <button class="filter-btn" data-filter="web-apps">Web Apps</button>
     </div>
@@ -1502,7 +1508,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
   <div class="wrap">
     <div class="foot-inner">
       <a href="#hero" class="logo" style="font-size:14px">
-        <span class="logo-bracket" style="font-size:16px">[</span><span class="logo-name">Reflexity</span><span class="logo-dot">.</span><span class="logo-bracket" style="font-size:16px">]</span>
+        <span class="logo-bracket" style="font-size:16px">[</span><span class="logo-name">Reflexity</span><span class="logo-bracket" style="font-size:16px">]</span>
       </a>
       <div class="foot-copy">© 2025 Reflexity · AI Engineer &amp; Automation Specialist</div>
       <div class="foot-social">
@@ -1689,87 +1695,151 @@ function toggleFaq(btn) {
 // PORTFOLIO FILTER
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
+function applyFilter(filter){
+  projectCards.forEach(card=>{
+    card.classList.toggle('hidden', card.dataset.category !== filter);
+  });
+}
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    projectCards.forEach(card => {
-      if (filter === 'all' || card.dataset.category === filter) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
-    });
+    applyFilter(btn.dataset.filter);
   });
 });
+// Apply default active filter on load
+const initFilterBtn = document.querySelector('.filter-btn.active');
+if(initFilterBtn) applyFilter(initFilterBtn.dataset.filter);
 
 // ── INTERACTIVE TECH STACK (CATEGORIZED) ──
 (function(){
   const svgs = {
     python:'<svg viewBox="0 0 256 255" fill="none"><defs><linearGradient id="pyA" x1="12.96" y1="12.78" x2="131.97" y2="132.76" gradientUnits="userSpaceOnUse"><stop stop-color="#387EB8"/><stop offset="1" stop-color="#366994"/></linearGradient><linearGradient id="pyB" x1="124.03" y1="122.22" x2="243.04" y2="242.22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFE052"/><stop offset="1" stop-color="#FFC331"/></linearGradient></defs><path d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072zM92.802 19.66a11.12 11.12 0 110 22.24 11.12 11.12 0 010-22.24z" fill="url(#pyA)"/><path d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.52 33.897zm34.114-19.586a11.12 11.12 0 110-22.24 11.12 11.12 0 010 22.24z" fill="url(#pyB)"/></svg>',
     javascript:'<svg viewBox="0 0 256 256"><rect width="256" height="256" fill="#F7DF1E"/><path d="M67.312 213.932l19.59-11.856c3.78 6.701 7.218 12.371 15.465 12.371 7.905 0 12.89-3.092 12.89-15.12v-81.798h24.057v82.138c0 24.917-14.606 36.259-35.916 36.259-19.245 0-30.416-9.967-36.087-21.996m85.07-2.576l19.588-11.341c5.157 8.421 11.859 14.607 23.715 14.607 9.969 0 16.325-4.984 16.325-11.858 0-8.248-6.53-11.17-17.528-15.98l-6.013-2.58c-17.357-7.387-28.87-16.667-28.87-36.257 0-18.044 13.747-31.792 35.228-31.792 15.294 0 26.292 5.328 34.196 19.247l-18.732 12.03c-4.125-7.389-8.591-10.31-15.465-10.31-7.046 0-11.514 4.468-11.514 10.31 0 7.217 4.468 10.14 14.778 14.608l6.014 2.577c20.45 8.765 31.963 17.7 31.963 37.804 0 21.654-17.012 33.51-39.867 33.51-22.339 0-36.774-10.654-43.819-24.574" fill="#000"/></svg>',
-    openai:'<svg viewBox="0 0 24 24" fill="#00A67E"><path d="M22.282 9.821a5.985 5.985 0 00-.516-4.91 6.046 6.046 0 00-6.51-2.9A6.065 6.065 0 0011.67.42a6.043 6.043 0 00-5.738 4.158 5.986 5.986 0 00-3.996 2.9 6.043 6.043 0 00.743 7.097 5.98 5.98 0 00.51 4.911 6.051 6.051 0 006.515 2.9A5.985 5.985 0 0013.29 23.58a6.043 6.043 0 005.738-4.158 5.986 5.986 0 003.996-2.9 6.043 6.043 0 00-.743-6.7zM13.29 21.95a4.49 4.49 0 01-2.888-1.05l.144-.08 4.802-2.773a.78.78 0 00.395-.678v-6.77l2.03 1.172a.07.07 0 01.039.052v5.606a4.508 4.508 0 01-4.522 4.522zm-9.71-4.143a4.488 4.488 0 01-.537-3.015l.144.086 4.802 2.773a.78.78 0 00.789 0l5.863-3.386v2.344a.07.07 0 01-.028.061L9.757 19.45a4.51 4.51 0 01-6.178-1.643zm-1.265-10.5a4.49 4.49 0 012.35-1.978v5.712a.78.78 0 00.395.678l5.863 3.386-2.03 1.171a.07.07 0 01-.066.006L3.893 12.5A4.507 4.507 0 012.315 7.31zm16.667 3.88l-5.863-3.386 2.03-1.172a.07.07 0 01.066-.006l4.857 2.804a4.505 4.505 0 01-.695 8.113v-5.675a.78.78 0 00-.395-.678zm2.021-3.036l-.144-.086-4.8-2.78a.78.78 0 00-.79 0L9.41 8.672V6.328a.07.07 0 01.028-.061l4.856-2.8a4.508 4.508 0 016.71 4.686zm-12.7 4.178L6.272 11.16a.07.07 0 01-.039-.052V5.5a4.508 4.508 0 017.41-3.464l-.144.08L8.697 4.89a.78.78 0 00-.395.678zm1.102-2.38L12 8.637l2.606 1.504v3.008L12 14.653l-2.606-1.504z"/></svg>',
-    claude:'<svg viewBox="0 0 24 24" fill="#D4A574"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.2 14.4L12 14l-3.2 2.4.8-3.8L6.4 10l3.8-.4L12 6l1.8 3.6 3.8.4-3.2 2.6.8 3.8z"/></svg>',
-    n8n:'<svg viewBox="0 0 24 24" fill="#EA4B71"><path d="M12.69 6.5l3.21-3.46 2.06 2.06-3.47 3.21zm-1.38 0L8.1 3.04 6.04 5.1l3.46 3.21zM12 8.96L8.1 12l3.9 3.04L15.9 12zm0 8.54l-3.21 3.46-2.06-2.06 3.47-3.21zm1.38 0l3.21 3.46 2.06-2.06-3.47-3.21zM3.04 8.1L6.5 11.31l3.21-3.21L6.25 4.63zm0 7.8l3.46-3.21L3.25 9.48.79 11.54zM20.96 8.1l-3.46 3.21 3.21 3.21 2.46-2.06zm0 7.8l-3.46-3.21-3.21 3.21 3.46 3.47z"/></svg>',
+    typescript:'<svg viewBox="0 0 256 256"><rect width="256" height="256" rx="16" fill="#3178C6"/><path d="M146 128h-18V116h52v12h-18v60h-16V128zm-56 60l-14-22-14 22H42l24-38-22-38h20l12 22 12-22h20l-22 38 24 38z" fill="#fff"/></svg>',
+    php:'<svg viewBox="0 0 256 128"><ellipse cx="128" cy="64" rx="122" ry="58" fill="#4F5B93"/><path d="M62 38h22c14 0 20 7 20 16 0 12-9 19-25 19H66l-4 17H46zm10 11-4 14h10c7 0 11-3 11-8 0-4-3-6-9-6zm42-11h22c14 0 20 7 20 16 0 12-9 19-25 19h-11l-4 17h-16zm10 11-4 14h10c7 0 11-3 11-8 0-4-3-6-9-6zm44-11h18l-14 57h-18z" fill="#fff"/></svg>',
     langchain:'<svg viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" stroke="#00C48C" stroke-width="1.5"/><path d="M12 7l-5 3v4l5 3 5-3v-4l-5-3z" fill="#00C48C" opacity=".3"/><circle cx="12" cy="12" r="2" fill="#00C48C"/></svg>',
-    crewai:'<svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="3" stroke="#FF6154" stroke-width="1.5"/><circle cx="16" cy="8" r="3" stroke="#FF6154" stroke-width="1.5"/><circle cx="12" cy="16" r="3" stroke="#FF6154" stroke-width="1.5"/><path d="M10.5 10l-1.5 3.5M13.5 10l1.5 3.5" stroke="#FF6154" stroke-width="1.2"/></svg>',
-    react:'<svg viewBox="0 0 256 228" fill="#61DAFB"><path d="M210.483 73.824a171.49 171.49 0 00-8.24-2.597c.465-1.9.893-3.777 1.273-5.621 6.238-30.281 2.16-54.676-11.769-62.708-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 00-6.375 5.848 155.866 155.866 0 00-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233 50.33 10.957 46.379 33.89 51.986 62.588a170.974 170.974 0 001.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 006.921 2.165 167.467 167.467 0 00-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266 13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 005.342-4.923 168.064 168.064 0 006.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586 13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 00-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488 29.348-9.723 48.443-25.443 48.443-41.52 0-15.417-17.868-30.326-45.517-39.844zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345-3.24-10.257-7.612-21.163-12.963-32.432 5.106-11 9.31-21.767 12.459-31.957 2.619.758 5.16 1.557 7.61 2.4 23.69 8.156 38.14 20.213 38.14 29.504 0 9.896-15.606 22.743-40.946 31.14zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787-1.524 8.219-4.59 13.698-8.382 15.893-8.067 4.667-25.32-1.4-43.927-17.412a156.726 156.726 0 01-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246 12.376-1.098 24.068-2.894 34.671-5.345a132.182 132.182 0 011.386 6.193zM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 011.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994 7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 01-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94zM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863-6.35-5.437-9.555-10.836-9.555-15.216 0-9.322 13.897-21.212 37.076-29.293 2.813-.98 5.757-1.905 8.812-2.773 3.204 10.42 7.406 21.315 12.477 32.332-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 01-6.318-1.979zM84.83 41.63c-4.31-23.69-1.18-42.188 6.884-46.846 8.507-4.907 27.236 2.189 46.896 20.18 1.252 1.146 2.52 2.342 3.803 3.584-7.56 8.072-15.032 17.322-22.177 27.372-12.195 1.073-23.808 2.79-34.396 5.233a142.188 142.188 0 01-1.01-9.523zm88.143 25.862c-2.652-4.556-5.388-9.009-8.214-13.34 7.532 1.174 14.746 2.682 21.553 4.49-2.067 6.882-4.765 14.1-7.99 21.537a152.482 152.482 0 00-5.349-12.687zM128 90.808c4.39 4.507 8.676 9.422 12.801 14.652-4.196-.2-8.477-.306-12.801-.306-4.354 0-8.665.11-12.893.318a169.368 169.368 0 0112.893-14.664zm-34.512 16.155c-2.809-4.497-5.463-9.069-7.94-13.661A142.978 142.978 0 01107 89.875c-5.142 5.246-10.165 10.943-14.912 16.993a143.104 143.104 0 01-7.6.095h9zm29.199 84.828c-4.346-4.679-8.64-9.87-12.763-15.457 4.107.174 8.308.264 12.576.264 4.456 0 8.846-.106 13.14-.314A165.47 165.47 0 01122.687 191.79zm33.093-16.088c3.036 5.3 5.872 10.49 8.467 15.479-7.016 1.84-14.484 3.374-22.273 4.522a196.4 196.4 0 0013.806-19.999zM128 127.672c6.148 0 12.14.243 17.949.714a184.482 184.482 0 01-17.949 21.46 182.596 182.596 0 01-18.035-21.442c5.885-.48 11.947-.732 18.035-.732z" fill-rule="evenodd"/></svg>',
-    supabase:'<svg viewBox="0 0 109 113" fill="none"><path d="M63.708 110.284c-2.86 3.601-8.658 1.628-8.727-2.97l-1.007-67.251h45.22c8.19 0 12.758 9.46 7.665 15.874L63.708 110.284z" fill="url(#supA)"/><path d="M63.708 110.284c-2.86 3.601-8.658 1.628-8.727-2.97l-1.007-67.251h45.22c8.19 0 12.758 9.46 7.665 15.874L63.708 110.284z" fill="url(#supB)" fill-opacity=".2"/><path d="M45.317 2.071c2.86-3.601 8.657-1.628 8.726 2.97l.442 67.251H9.83c-8.19 0-12.759-9.46-7.665-15.875L45.317 2.072z" fill="#3ECF8E"/><defs><linearGradient id="supA" x1="53.974" y1="54.974" x2="94.163" y2="71.829" gradientUnits="userSpaceOnUse"><stop stop-color="#249361"/><stop offset="1" stop-color="#3ECF8E"/></linearGradient><linearGradient id="supB" x1="36.156" y1="30.578" x2="54.484" y2="65.081" gradientUnits="userSpaceOnUse"><stop/><stop offset="1" stop-opacity="0"/></linearGradient></defs></svg>',
+    llamaindex:'<svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-3 0-5 2.5-5 5.5v5c0 3 2 5 5 5s5-2 5-5v-5C17 5.5 15 3 12 3z" fill="#FF8C00"/><circle cx="9.5" cy="8.5" r="1.2" fill="#fff"/><circle cx="14.5" cy="8.5" r="1.2" fill="#fff"/><path d="M10 12c0 1 .9 2 2 2s2-1 2-2" stroke="#fff" stroke-width="1" stroke-linecap="round"/><path d="M8 3.5l-2-2M16 3.5l2-2" stroke="#FF8C00" stroke-width="1.5" stroke-linecap="round"/></svg>',
+    openai:'<svg viewBox="0 0 24 24" fill="#00A67E"><path d="M22.282 9.821a5.985 5.985 0 00-.516-4.91 6.046 6.046 0 00-6.51-2.9A6.065 6.065 0 0011.67.42a6.043 6.043 0 00-5.738 4.158 5.986 5.986 0 00-3.996 2.9 6.043 6.043 0 00.743 7.097 5.98 5.98 0 00.51 4.911 6.051 6.051 0 006.515 2.9A5.985 5.985 0 0013.29 23.58a6.043 6.043 0 005.738-4.158 5.986 5.986 0 003.996-2.9 6.043 6.043 0 00-.743-6.7zM13.29 21.95a4.49 4.49 0 01-2.888-1.05l.144-.08 4.802-2.773a.78.78 0 00.395-.678v-6.77l2.03 1.172a.07.07 0 01.039.052v5.606a4.508 4.508 0 01-4.522 4.522zm-9.71-4.143a4.488 4.488 0 01-.537-3.015l.144.086 4.802 2.773a.78.78 0 00.789 0l5.863-3.386v2.344a.07.07 0 01-.028.061L9.757 19.45a4.51 4.51 0 01-6.178-1.643zm-1.265-10.5a4.49 4.49 0 012.35-1.978v5.712a.78.78 0 00.395.678l5.863 3.386-2.03 1.171a.07.07 0 01-.066.006L3.893 12.5A4.507 4.507 0 012.315 7.31zm16.667 3.88l-5.863-3.386 2.03-1.172a.07.07 0 01.066-.006l4.857 2.804a4.505 4.505 0 01-.695 8.113v-5.675a.78.78 0 00-.395-.678zm2.021-3.036l-.144-.086-4.8-2.78a.78.78 0 00-.79 0L9.41 8.672V6.328a.07.07 0 01.028-.061l4.856-2.8a4.508 4.508 0 016.71 4.686zm-12.7 4.178L6.272 11.16a.07.07 0 01-.039-.052V5.5a4.508 4.508 0 017.41-3.464l-.144.08L8.697 4.89a.78.78 0 00-.395.678zm1.102-2.38L12 8.637l2.606 1.504v3.008L12 14.653l-2.606-1.504z"/></svg>',
+    anthropic:'<svg viewBox="0 0 24 24" fill="#D4A574"><path d="M12 2L4 22h3l1.8-5h6.4L17 22h3L12 2zm0 5.5l2.2 6.5H9.8z"/></svg>',
     pinecone:'<svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 5.5L12 10 9 7.5 12 2z" fill="#007AFF"/><path d="M12 10l3 5.5L12 18l-3-2.5L12 10z" fill="#007AFF" opacity=".7"/><path d="M12 18v4" stroke="#007AFF" stroke-width="2" stroke-linecap="round"/><path d="M6 5l3 2.5M18 5l-3 2.5" stroke="#007AFF" stroke-width="1.5" stroke-linecap="round"/></svg>',
+    milvus:'<svg viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="5" rx="8" ry="2.5" fill="#00B4D8" opacity=".9"/><path d="M4 5v4" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/><path d="M20 5v4" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/><ellipse cx="12" cy="9" rx="8" ry="2.5" fill="#0096C7" opacity=".9"/><path d="M4 9v4" stroke="#0096C7" stroke-width="2" stroke-linecap="round"/><path d="M20 9v4" stroke="#0096C7" stroke-width="2" stroke-linecap="round"/><ellipse cx="12" cy="13" rx="8" ry="2.5" fill="#0077B6" opacity=".9"/></svg>',
+    weaviate:'<svg viewBox="0 0 24 24" fill="none"><path d="M12 2l10 18H2L12 2z" stroke="#4CAF50" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 14l5 6 5-6H7z" fill="#4CAF50" opacity=".5"/><circle cx="12" cy="8" r="2" fill="#4CAF50"/></svg>',
     chromadb:'<svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="4" fill="#FF6B6B" opacity=".8"/><circle cx="16" cy="8" r="4" fill="#4ECDC4" opacity=".8"/><circle cx="12" cy="15" r="4" fill="#FFE66D" opacity=".8"/></svg>',
-    make:'<svg viewBox="0 0 24 24" fill="#6C48C9"><circle cx="12" cy="12" r="10" fill="none" stroke="#6C48C9" stroke-width="2"/><circle cx="8" cy="12" r="2" fill="#6C48C9"/><circle cx="16" cy="12" r="2" fill="#6C48C9"/><path d="M10 12h4" stroke="#6C48C9" stroke-width="1.5"/></svg>'
+    crewai:'<svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="3" stroke="#FF6154" stroke-width="1.5"/><circle cx="16" cy="8" r="3" stroke="#FF6154" stroke-width="1.5"/><circle cx="12" cy="16" r="3" stroke="#FF6154" stroke-width="1.5"/><path d="M10.5 10l-1.5 3.5M13.5 10l1.5 3.5" stroke="#FF6154" stroke-width="1.2"/></svg>',
+    n8n:'<svg viewBox="0 0 24 24" fill="#EA4B71"><path d="M12.69 6.5l3.21-3.46 2.06 2.06-3.47 3.21zm-1.38 0L8.1 3.04 6.04 5.1l3.46 3.21zM12 8.96L8.1 12l3.9 3.04L15.9 12zm0 8.54l-3.21 3.46-2.06-2.06 3.47-3.21zm1.38 0l3.21 3.46 2.06-2.06-3.47-3.21zM3.04 8.1L6.5 11.31l3.21-3.21L6.25 4.63zm0 7.8l3.46-3.21L3.25 9.48.79 11.54zM20.96 8.1l-3.46 3.21 3.21 3.21 2.46-2.06zm0 7.8l-3.46-3.21-3.21 3.21 3.46 3.47z"/></svg>',
+    make:'<svg viewBox="0 0 24 24" fill="#6C48C9"><circle cx="12" cy="12" r="10" fill="none" stroke="#6C48C9" stroke-width="2"/><circle cx="8" cy="12" r="2" fill="#6C48C9"/><circle cx="16" cy="12" r="2" fill="#6C48C9"/><path d="M10 12h4" stroke="#6C48C9" stroke-width="1.5"/></svg>',
+    autogpt:'<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="13" rx="3" stroke="#10A37F" stroke-width="1.5"/><circle cx="8.5" cy="10.5" r="1.5" fill="#10A37F"/><circle cx="15.5" cy="10.5" r="1.5" fill="#10A37F"/><path d="M8.5 6h7M7 14h10" stroke="#10A37F" stroke-width="1.2" stroke-linecap="round"/><path d="M7 17v4M12 17v3M17 17v4" stroke="#10A37F" stroke-width="1.5" stroke-linecap="round"/></svg>',
+    supabase:'<svg viewBox="0 0 109 113" fill="none"><path d="M63.708 110.284c-2.86 3.601-8.658 1.628-8.727-2.97l-1.007-67.251h45.22c8.19 0 12.758 9.46 7.665 15.874L63.708 110.284z" fill="url(#supA)"/><path d="M63.708 110.284c-2.86 3.601-8.658 1.628-8.727-2.97l-1.007-67.251h45.22c8.19 0 12.758 9.46 7.665 15.874L63.708 110.284z" fill="url(#supB)" fill-opacity=".2"/><path d="M45.317 2.071c2.86-3.601 8.657-1.628 8.726 2.97l.442 67.251H9.83c-8.19 0-12.759-9.46-7.665-15.875L45.317 2.072z" fill="#3ECF8E"/><defs><linearGradient id="supA" x1="53.974" y1="54.974" x2="94.163" y2="71.829" gradientUnits="userSpaceOnUse"><stop stop-color="#249361"/><stop offset="1" stop-color="#3ECF8E"/></linearGradient><linearGradient id="supB" x1="36.156" y1="30.578" x2="54.484" y2="65.081" gradientUnits="userSpaceOnUse"><stop/><stop offset="1" stop-opacity="0"/></linearGradient></defs></svg>',
+    aws:'<svg viewBox="0 0 24 24" fill="none"><path d="M3 16c0-3.5 4-6 9-6s9 2.5 9 6" stroke="#FF9900" stroke-width="1.5" stroke-linecap="round"/><path d="M6.5 19l-3 2M17.5 19l3 2" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/><path d="M10 19h4" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/></svg>',
+    vercel:'<svg viewBox="0 0 256 256" fill="none"><circle cx="128" cy="128" r="124" fill="#1a1a1a"/><path d="M128 52l80 140H48z" fill="#fff"/></svg>',
+    docker:'<svg viewBox="0 0 24 24" fill="none"><rect x="5" y="8" width="4" height="3" rx="1" fill="#0db7ed"/><rect x="10" y="8" width="4" height="3" rx="1" fill="#0db7ed"/><rect x="15" y="8" width="4" height="3" rx="1" fill="#0db7ed"/><rect x="10" y="5" width="4" height="3" rx="1" fill="#0db7ed" opacity=".7"/><path d="M2 13.5C5 13.5 4 17 7 17h10c3.5 0 5-2 5-4.5" stroke="#0db7ed" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="11" r="1.5" fill="#0db7ed"/></svg>',
+    react:'<svg viewBox="0 0 256 228" fill="#61DAFB"><path d="M210.483 73.824a171.49 171.49 0 00-8.24-2.597c.465-1.9.893-3.777 1.273-5.621 6.238-30.281 2.16-54.676-11.769-62.708-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 00-6.375 5.848 155.866 155.866 0 00-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233 50.33 10.957 46.379 33.89 51.986 62.588a170.974 170.974 0 001.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 006.921 2.165 167.467 167.467 0 00-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266 13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 005.342-4.923 168.064 168.064 0 006.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586 13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 00-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488 29.348-9.723 48.443-25.443 48.443-41.52 0-15.417-17.868-30.326-45.517-39.844zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345-3.24-10.257-7.612-21.163-12.963-32.432 5.106-11 9.31-21.767 12.459-31.957 2.619.758 5.16 1.557 7.61 2.4 23.69 8.156 38.14 20.213 38.14 29.504 0 9.896-15.606 22.743-40.946 31.14zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787-1.524 8.219-4.59 13.698-8.382 15.893-8.067 4.667-25.32-1.4-43.927-17.412a156.726 156.726 0 01-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246 12.376-1.098 24.068-2.894 34.671-5.345a132.182 132.182 0 011.386 6.193zM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 011.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994 7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 01-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94zM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863-6.35-5.437-9.555-10.836-9.555-15.216 0-9.322 13.897-21.212 37.076-29.293 2.813-.98 5.757-1.905 8.812-2.773 3.204 10.42 7.406 21.315 12.477 32.332-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 01-6.318-1.979zM84.83 41.63c-4.31-23.69-1.18-42.188 6.884-46.846 8.507-4.907 27.236 2.189 46.896 20.18 1.252 1.146 2.52 2.342 3.803 3.584-7.56 8.072-15.032 17.322-22.177 27.372-12.195 1.073-23.808 2.79-34.396 5.233a142.188 142.188 0 01-1.01-9.523zm88.143 25.862c-2.652-4.556-5.388-9.009-8.214-13.34 7.532 1.174 14.746 2.682 21.553 4.49-2.067 6.882-4.765 14.1-7.99 21.537a152.482 152.482 0 00-5.349-12.687zM128 90.808c4.39 4.507 8.676 9.422 12.801 14.652-4.196-.2-8.477-.306-12.801-.306-4.354 0-8.665.11-12.893.318a169.368 169.368 0 0112.893-14.664zm-34.512 16.155c-2.809-4.497-5.463-9.069-7.94-13.661A142.978 142.978 0 01107 89.875c-5.142 5.246-10.165 10.943-14.912 16.993a143.104 143.104 0 01-7.6.095h9zm29.199 84.828c-4.346-4.679-8.64-9.87-12.763-15.457 4.107.174 8.308.264 12.576.264 4.456 0 8.846-.106 13.14-.314A165.47 165.47 0 01122.687 191.79zm33.093-16.088c3.036 5.3 5.872 10.49 8.467 15.479-7.016 1.84-14.484 3.374-22.273 4.522a196.4 196.4 0 0013.806-19.999zM128 127.672c6.148 0 12.14.243 17.949.714a184.482 184.482 0 01-17.949 21.46 182.596 182.596 0 01-18.035-21.442c5.885-.48 11.947-.732 18.035-.732z" fill-rule="evenodd"/></svg>',
+    nextjs:'<svg viewBox="0 0 256 256" fill="none"><circle cx="128" cy="128" r="124" fill="#111"/><path d="M214 222L96 64v142H72V34h30l112 150V34h26v188h-26z" fill="#fff"/></svg>',
+    tailwind:'<svg viewBox="0 0 24 24" fill="#38BDF8"><path d="M12 6c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35C13.27 10.8 14.24 12 16 12c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.91-1.35C14.73 7.2 13.76 6 12 6zM7 12c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.3.74 1.91 1.35C8.27 16.8 9.24 18 11 18c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.91-1.35C9.73 13.2 8.76 12 7 12z"/></svg>',
+    framer:'<svg viewBox="0 0 24 24" fill="none"><path d="M4 3h16v7H12L4 3z" fill="#0055FF"/><path d="M4 10h8l8 7H4z" fill="#0044DD"/><path d="M4 17h8v7L4 17z" fill="#0033BB"/></svg>',
+    github:'<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#24292E"/><path d="M12 2.25A9.75 9.75 0 002.25 12c0 4.3 2.8 7.94 6.68 9.22.49.09.67-.21.67-.47v-1.65c-2.72.59-3.3-1.31-3.3-1.31-.45-1.13-1.09-1.43-1.09-1.43-.89-.61.07-.6.07-.6.98.07 1.5 1.01 1.5 1.01.87 1.5 2.29 1.06 2.85.81.09-.63.34-1.06.62-1.3-2.17-.25-4.46-1.09-4.46-4.83 0-1.07.38-1.94 1.01-2.62-.1-.25-.44-1.24.1-2.58 0 0 .82-.26 2.69 1 .78-.22 1.62-.33 2.45-.33.83 0 1.67.11 2.45.33 1.87-1.26 2.69-1 2.69-1 .54 1.34.2 2.33.1 2.58.63.68 1.01 1.55 1.01 2.62 0 3.75-2.29 4.58-4.47 4.82.35.3.67.9.67 1.82v2.7c0 .26.18.57.68.47A9.75 9.75 0 0021.75 12 9.75 9.75 0 0012 2.25z" fill="#fff"/></svg>',
+    postman:'<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#FF6C37"/><path d="M16.5 7.5l-9 9M10 7h7v7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="16.5" r="1.5" fill="#fff"/></svg>',
+    vscode:'<svg viewBox="0 0 24 24" fill="none"><path d="M17 3L7 13l-4-3-2 2 4 4 2 1 2-1L20 6l1-2-4-1z" fill="#007ACC"/><path d="M17 3v18l4-2V5l-4-2z" fill="#007ACC" opacity=".7"/><path d="M7 13L3 10l-2 2 4 4 2-3z" fill="#007ACC"/></svg>',
+    wandb:'<svg viewBox="0 0 24 24" fill="none"><path d="M3 18L8 8l4 7 4-5 5 8H3z" fill="#FFBE00" opacity=".2" stroke="#FFBE00" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8" cy="8" r="1.5" fill="#FFBE00"/><circle cx="12" cy="15" r="1.5" fill="#FFBE00"/><circle cx="16" cy="10" r="1.5" fill="#FFBE00"/></svg>'
   };
 
-  // Full tech data (reused by categories)
   const techData = {
     python:{svg:svgs.python,label:'Python',color:'#3776AB',title:'Python',badge:'Core Language',
-      desc:'My primary backend language. I use Python for building production AI tools, LLM integrations, data pipelines, and automation scripts that power real business workflows.',
+      desc:'My primary backend language for building production AI tools, LLM integrations, data pipelines, and automation scripts that power real business workflows.',
       features:['LLM orchestration with LangChain & OpenAI SDK','FastAPI microservices & REST APIs','Data processing & ETL pipelines','Custom AI model wrappers & agents']},
-    javascript:{svg:svgs.javascript,label:'JavaScript',color:'#F7DF1E',title:'JavaScript',badge:'Full-Stack',
-      desc:'I build fast, interactive frontends and Node.js backends. From React dashboards to serverless functions — JavaScript powers the interface layer of every project.',
+    javascript:{svg:svgs.javascript,label:'JavaScript',color:'#F7DF1E',title:'JavaScript',badge:'Core Language',
+      desc:'Fast, interactive frontends and Node.js backends. From React dashboards to serverless functions — JavaScript powers the interface layer of every project.',
       features:['React & Next.js dashboards','Node.js serverless functions','Real-time WebSocket integrations','Chrome extensions & browser tools']},
-    openai:{svg:svgs.openai,label:'OpenAI',color:'#00A67E',title:'OpenAI API',badge:'LLM Provider',
-      desc:'GPT-4, GPT-4o, and Whisper power the intelligence behind my chatbots, content generators, and document parsers. Fine-tuned prompts, function calling, and assistants API.',
-      features:['GPT-4o for reasoning & generation','Assistants API with custom tools','Whisper for speech-to-text','Embeddings for semantic search']},
-    claude:{svg:svgs.claude,label:'Claude',color:'#D4A574',title:'Claude API',badge:'LLM Provider',
-      desc:"Anthropic's Claude handles long-context analysis, structured output, and nuanced content creation. Ideal for document-heavy RAG systems and multi-step reasoning.",
-      features:['200K token context window','Structured JSON output','Document analysis & summarization','Complex reasoning chains']},
-    langchain:{svg:svgs.langchain,label:'LangChain',color:'#00C48C',title:'LangChain',badge:'AI Framework',
-      desc:'The orchestration layer for RAG pipelines, agent systems, and retrieval-augmented generation. I use LangChain to build AI tools that reason over your data.',
+    typescript:{svg:svgs.typescript,label:'TypeScript',color:'#3178C6',title:'TypeScript',badge:'Core Language',
+      desc:'Type safety and modern tooling for every production frontend and Node.js project — catching bugs at compile time before they reach runtime.',
+      features:['Static typing prevents runtime errors','IDE autocompletion & refactoring','Interface-driven architecture','Compiles to any JS target']},
+    php:{svg:svgs.php,label:'PHP',color:'#4F5B93',title:'PHP',badge:'Backend Language',
+      desc:'Server-side scripting for dynamic web apps, REST APIs, and CMS customizations including WordPress builds and legacy codebase modernizations.',
+      features:['WordPress plugin & theme dev','REST API development','Laravel framework projects','Legacy system migrations']},
+    langchain:{svg:svgs.langchain,label:'LangChain',color:'#00C48C',title:'LangChain',badge:'LLM Framework',
+      desc:'The orchestration layer for RAG pipelines and agent systems. I use LangChain to build AI tools that reason over your data with persistent memory.',
       features:['RAG document Q&A systems','Multi-agent orchestration','Custom tool & function chains','Memory-enabled conversations']},
-    crewai:{svg:svgs.crewai,label:'CrewAI',color:'#FF6154',title:'CrewAI',badge:'Agent Framework',
-      desc:'Multi-agent orchestration framework that lets autonomous AI agents collaborate on complex tasks. I use CrewAI to build teams of specialized agents that work together.',
-      features:['Multi-agent task delegation','Role-based agent specialization','Autonomous workflow execution','Complex reasoning pipelines']},
+    llamaindex:{svg:svgs.llamaindex,label:'LlamaIndex',color:'#FF8C00',title:'LlamaIndex',badge:'LLM Framework',
+      desc:'Advanced data framework for sophisticated RAG systems with complex query engines, multi-modal retrieval, and knowledge graph integration.',
+      features:['Advanced RAG pipelines','Multi-modal data indexing','Query engine composition','Knowledge graph integration']},
+    openai:{svg:svgs.openai,label:'OpenAI SDK',color:'#00A67E',title:'OpenAI SDK',badge:'LLM Framework',
+      desc:'GPT-4o, Assistants API, and Whisper power the intelligence behind chatbots, content generators, and document parsers with function calling.',
+      features:['GPT-4o for reasoning & generation','Assistants API with custom tools','Whisper for speech-to-text','Embeddings for semantic search']},
+    anthropic:{svg:svgs.anthropic,label:'Anthropic API',color:'#D4A574',title:'Anthropic API',badge:'LLM Framework',
+      desc:"Claude's 200K token context window handles long-form documents, structured output, and multi-step reasoning — ideal for document-heavy RAG systems.",
+      features:['200K+ token context window','Structured JSON output','Document analysis & summarization','Constitutional AI safety']},
     pinecone:{svg:svgs.pinecone,label:'Pinecone',color:'#007AFF',title:'Pinecone',badge:'Vector Database',
-      desc:'High-performance vector database for semantic search and RAG. I store embeddings here so AI tools can retrieve the most relevant context in milliseconds.',
+      desc:'High-performance vector database for semantic search and RAG. Embeddings stored here let AI tools retrieve the most relevant context in milliseconds.',
       features:['Semantic similarity search','Billion-scale vector storage','Metadata filtering','RAG retrieval backbone']},
+    milvus:{svg:svgs.milvus,label:'Milvus',color:'#00B4D8',title:'Milvus',badge:'Vector Database',
+      desc:'Open-source vector database for enterprise-scale similarity search. I deploy Milvus for on-prem RAG systems requiring advanced HNSW/IVF indexing.',
+      features:['Billion-scale vector search','HNSW & IVF indexing','Hybrid scalar+vector search','Cloud-native deployment']},
+    weaviate:{svg:svgs.weaviate,label:'Weaviate',color:'#4CAF50',title:'Weaviate',badge:'Vector Database',
+      desc:'AI-native vector DB with built-in vectorization, GraphQL querying, and multi-modal storage — ideal for knowledge graph-style RAG architectures.',
+      features:['Built-in embedding generation','GraphQL query interface','Multi-modal object storage','Hybrid semantic search']},
     chromadb:{svg:svgs.chromadb,label:'ChromaDB',color:'#FF6B6B',title:'ChromaDB',badge:'Vector Database',
-      desc:'Open-source embedding database for AI applications. ChromaDB powers local-first RAG systems with fast similarity search and seamless Python integration.',
+      desc:'Open-source embedding database powering local-first RAG prototypes with Python-native integration and fast in-memory/persistent similarity search.',
       features:['Open-source & self-hosted','Python-native integration','In-memory & persistent modes','Lightweight embedding storage']},
-    n8n:{svg:svgs.n8n,label:'n8n',color:'#EA4B71',title:'n8n',badge:'Automation Engine',
-      desc:'Self-hosted workflow automation that connects any API. I build complex multi-step automations with AI nodes, conditional logic, and real-time triggers.',
+    crewai:{svg:svgs.crewai,label:'CrewAI',color:'#FF6154',title:'CrewAI',badge:'Agent & Automation',
+      desc:'Multi-agent orchestration where specialized AI agents collaborate autonomously. I build CrewAI pipelines for research, content, and complex workflow automation.',
+      features:['Multi-agent task delegation','Role-based agent specialization','Autonomous workflow execution','Complex reasoning pipelines']},
+    n8n:{svg:svgs.n8n,label:'n8n',color:'#EA4B71',title:'n8n',badge:'Agent & Automation',
+      desc:'Self-hosted workflow automation connecting any API. Complex AI-powered automations with conditional logic, AI decision nodes, and real-time triggers.',
       features:['Self-hosted for full data control','400+ native integrations','AI-powered decision nodes','Webhook & cron triggers']},
-    make:{svg:svgs.make,label:'Make',color:'#6C48C9',title:'Make (Integromat)',badge:'Automation Platform',
+    make:{svg:svgs.make,label:'Make',color:'#6C48C9',title:'Make (Integromat)',badge:'Agent & Automation',
       desc:'Visual automation platform for complex business workflows. Multi-branch scenarios, error handling, and 1,000+ app integrations — all without code.',
       features:['Visual workflow builder','1,000+ app connectors','AI module integration','Advanced error handling']},
-    react:{svg:svgs.react,label:'React',color:'#61DAFB',title:'React & Next.js',badge:'Frontend Framework',
-      desc:'Modern, responsive dashboards and web applications. Server-side rendering, edge functions, and seamless deployment — the complete frontend stack.',
-      features:['Server-side rendering with Next.js','Real-time data dashboards','Component-driven architecture','Vercel edge deployment']},
-    supabase:{svg:svgs.supabase,label:'Supabase',color:'#3ECF8E',title:'Supabase',badge:'Backend-as-a-Service',
-      desc:'Open-source Firebase alternative. Postgres database, auth, real-time subscriptions, and storage — the backbone for every SaaS and data-driven project.',
-      features:['Postgres with row-level security','Real-time subscriptions','Built-in auth & storage','Edge functions & webhooks']}
+    autogpt:{svg:svgs.autogpt,label:'AutoGPT',color:'#10A37F',title:'AutoGPT',badge:'Agent & Automation',
+      desc:'Autonomous AI agent framework for goal-directed task execution. I build self-iterating research agents and long-horizon automation pipelines with AutoGPT.',
+      features:['Goal-directed task execution','Long-horizon planning','Tool-use & web access','Self-critiquing feedback loops']},
+    supabase:{svg:svgs.supabase,label:'Supabase',color:'#3ECF8E',title:'Supabase',badge:'Deployment & Infra',
+      desc:'Open-source Firebase alternative. Postgres, auth, real-time subscriptions, and storage — the backbone for every SaaS and data-driven AI project.',
+      features:['Postgres with row-level security','Real-time subscriptions','Built-in auth & storage','Edge functions & webhooks']},
+    aws:{svg:svgs.aws,label:'AWS',color:'#FF9900',title:'Amazon Web Services',badge:'Deployment & Infra',
+      desc:'Core cloud infrastructure for production AI deployments. Lambda for serverless, EC2 for compute, S3 for storage, and SageMaker for ML workloads.',
+      features:['Lambda serverless functions','EC2 & ECS container hosting','S3 data & model storage','SageMaker AI workloads']},
+    vercel:{svg:svgs.vercel,label:'Vercel',color:'#C0C0C0',title:'Vercel',badge:'Deployment & Infra',
+      desc:'Zero-config deployment for modern web apps. Every Next.js and React project ships on Vercel — instant global CDN, preview deployments, and edge functions.',
+      features:['Instant global CDN deployment','Preview deploys per branch','Edge functions & middleware','ISR & static generation']},
+    docker:{svg:svgs.docker,label:'Docker',color:'#0db7ed',title:'Docker',badge:'Deployment & Infra',
+      desc:'Containerization for portable, reproducible deployments. Every AI service and API ships in Docker for consistent environments across dev, staging, and production.',
+      features:['Reproducible dev environments','Docker Compose for local stacks','Container-based CI/CD','Kubernetes-ready images']},
+    react:{svg:svgs.react,label:'React',color:'#61DAFB',title:'React',badge:'Frontend & UI',
+      desc:'Component-driven UIs for AI dashboards and client interfaces. React powers every interactive front-end I build — real-time data displays to AI chat UIs.',
+      features:['Reusable component architecture','Real-time data dashboards','React hooks & context API','AI chat interface patterns']},
+    nextjs:{svg:svgs.nextjs,label:'Next.js',color:'#C0C0C0',title:'Next.js',badge:'Frontend & UI',
+      desc:'Full-stack React framework for production. API routes, server components, and edge-optimized static generation — all in one modern codebase.',
+      features:['App Router & server components','API routes & edge functions','ISR & static generation','Built-in image optimization']},
+    tailwind:{svg:svgs.tailwind,label:'Tailwind CSS',color:'#38BDF8',title:'Tailwind CSS',badge:'Frontend & UI',
+      desc:'Utility-first CSS for rapid, consistent UI development. Every front-end uses Tailwind for responsive design, dark mode, and pixel-perfect layouts without bloat.',
+      features:['Utility-first rapid styling','Responsive-first design system','Dark mode support built-in','JIT compiler for tiny bundles']},
+    framer:{svg:svgs.framer,label:'Framer Motion',color:'#0055FF',title:'Framer Motion',badge:'Frontend & UI',
+      desc:'Production-ready animation for React. Staggered reveals, gesture-driven UI, spring physics, and exit animations that feel polished and alive.',
+      features:['Spring-based physics animations','Gesture & drag interactions','Layout transition animations','Exit animations & presence']},
+    github:{svg:svgs.github,label:'GitHub',color:'#6E40C9',title:'GitHub',badge:'Dev Tools',
+      desc:'Every project lives on GitHub. Pull requests, GitHub Actions CI/CD, code review workflows, and project management — all in one platform.',
+      features:['Git branching & collaboration','GitHub Actions CI/CD','Code review workflows','Project boards & issues']},
+    postman:{svg:svgs.postman,label:'Postman',color:'#FF6C37',title:'Postman',badge:'Dev Tools',
+      desc:'API design, testing, and documentation. I validate every API I build with Postman — automated test collections, mock servers, and team sharing.',
+      features:['API design & documentation','Automated test collections','Environment variable management','Mock server creation']},
+    vscode:{svg:svgs.vscode,label:'VS Code',color:'#007ACC',title:'VS Code',badge:'Dev Tools',
+      desc:'My primary development environment powering every Python AI script, React component, and data pipeline with full debugging and Git integration.',
+      features:['Multi-language debugging','GitHub Copilot integration','Remote container dev','Customizable workspace settings']},
+    wandb:{svg:svgs.wandb,label:'W&B',color:'#FFBE00',title:'Weights & Biases',badge:'Dev Tools',
+      desc:'ML experiment tracking and model management. I use W&B to log training runs, compare hyperparameters, track metrics, and collaborate on ML experiments.',
+      features:['Experiment tracking & logging','Hyperparameter sweeps','Model artifact versioning','Team collaboration dashboards']}
   };
 
-  // Category definitions
+  // 7 categories x 4 items each
   const categories = [
-    {id:'languages', icon:'⌨️', label:'Languages',      color:'#3776AB', items:['python','javascript']},
-    {id:'llm',       icon:'🧠', label:'LLM Providers',  color:'#00A67E', items:['openai','claude']},
-    {id:'frameworks',icon:'⛓️', label:'AI Frameworks',  color:'#00C48C', items:['langchain','crewai']},
-    {id:'vectordb',  icon:'🗄️', label:'Vector Databases',color:'#007AFF', items:['pinecone','chromadb']},
-    {id:'automation',icon:'⚡', label:'Automation',     color:'#EA4B71', items:['n8n','make']},
-    {id:'frontend',  icon:'🖥️', label:'Frontend',       color:'#61DAFB', items:['react']},
-    {id:'backend',   icon:'🗃️', label:'Backend',        color:'#3ECF8E', items:['supabase']}
+    {id:'languages', icon:'\u2328\ufe0f', label:'Core Languages',    color:'#3776AB', items:['python','javascript','typescript','php']},
+    {id:'llm',       icon:'\ud83e\udde0', label:'LLM Frameworks',    color:'#00A67E', items:['langchain','llamaindex','openai','anthropic']},
+    {id:'vectordb',  icon:'\ud83d\uddc4\ufe0f', label:'Vector Databases',  color:'#007AFF', items:['pinecone','milvus','weaviate','chromadb']},
+    {id:'agents',    icon:'\ud83e\udd16', label:'Agent & Automation',color:'#FF6154', items:['crewai','n8n','make','autogpt']},
+    {id:'infra',     icon:'\u2601\ufe0f', label:'Deployment & Infra',color:'#FF9900', items:['supabase','aws','vercel','docker']},
+    {id:'frontend',  icon:'\ud83d\udda5\ufe0f', label:'Frontend & UI',     color:'#38BDF8', items:['react','nextjs','tailwind','framer']},
+    {id:'devtools',  icon:'\ud83d\udee0\ufe0f', label:'Dev Tools',         color:'#6E40C9', items:['github','postman','vscode','wandb']}
   ];
 
   const catRowEl  = document.getElementById('tsCatRow');
@@ -1780,7 +1850,6 @@ filterBtns.forEach(btn => {
   let activeCatId  = categories[0].id;
   let activeTechId = null;
 
-  // Helper
   function hexToRgba(hex,alpha){
     if(hex.startsWith('#')){
       const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
@@ -1789,7 +1858,6 @@ filterBtns.forEach(btn => {
     return hex;
   }
 
-  // Build ALL content panes once (hidden by default)
   Object.entries(techData).forEach(([id,t])=>{
     const p=document.createElement('div');
     p.className='ts-pane';
@@ -1808,56 +1876,48 @@ filterBtns.forEach(btn => {
     contentEl.appendChild(p);
   });
 
-  // Build category buttons
   categories.forEach(cat=>{
     const btn=document.createElement('button');
     btn.className='ts-cat-btn'+(cat.id===activeCatId?' active':'');
     btn.dataset.catId=cat.id;
     btn.style.setProperty('--cat-color',cat.color);
     btn.style.setProperty('--cat-glow',hexToRgba(cat.color,.18));
-    btn.innerHTML=`<span class="ts-cat-emoji">${cat.icon}</span><span>${cat.label}</span>`;
+    btn.innerHTML=`<span class="ts-cat-emoji">${cat.icon}</span>${cat.label}`;
     catRowEl.appendChild(btn);
   });
 
-  // Show sub-bubbles for given category, with staggered pop-in
-  function showSubBubbles(catId, selectFirst){
+  function showSubBubbles(catId,selectFirst){
     const cat=categories.find(c=>c.id===catId);
     if(!cat) return;
-    // Clear existing
     subEl.innerHTML='';
     cat.items.forEach((techId,i)=>{
       const t=techData[techId];
       if(!t) return;
-      const b=document.createElement('div');
-      b.className='ts-bubble'+(techId===activeTechId?' active':'');
+      const b=document.createElement('button');
+      b.className='ts-bubble';
       b.dataset.tech=techId;
       b.style.setProperty('--ts-color',t.color);
-      b.style.setProperty('--ts-glow',hexToRgba(t.color,.2));
+      b.style.setProperty('--ts-glow',hexToRgba(t.color,.3));
       b.style.animationDelay=(i*70)+'ms';
       b.innerHTML=`<div class="ts-bubble-icon">${t.svg}</div><span class="ts-bubble-label">${t.label}</span>`;
       subEl.appendChild(b);
-      // Trigger pop-in after tiny delay so element is in DOM
       requestAnimationFrame(()=>{ requestAnimationFrame(()=>{ b.classList.add('pop'); }); });
     });
-    // Auto-select first tech in category
     if(selectFirst||!cat.items.includes(activeTechId)){
       activeTechId=cat.items[0];
       showPane(activeTechId);
-      // Mark first bubble active after DOM settles
       setTimeout(()=>{
         subEl.querySelector(`.ts-bubble[data-tech="${activeTechId}"]`)?.classList.add('active');
       },50);
     }
   }
 
-  // Show content pane for tech
   function showPane(techId){
     contentEl.querySelectorAll('.ts-pane').forEach(p=>p.classList.remove('active'));
     const pane=contentEl.querySelector(`.ts-pane[data-tech="${techId}"]`);
     if(pane) pane.classList.add('active');
   }
 
-  // Category click handler
   catRowEl.addEventListener('click',e=>{
     const btn=e.target.closest('.ts-cat-btn');
     if(!btn) return;
@@ -1865,14 +1925,12 @@ filterBtns.forEach(btn => {
     if(catId===activeCatId) return;
     activeCatId=catId;
     activeTechId=null;
-    // Update button states
     catRowEl.querySelectorAll('.ts-cat-btn').forEach(b=>{
       b.classList.toggle('active',b.dataset.catId===catId);
     });
     showSubBubbles(catId,true);
   });
 
-  // Sub-bubble click handler
   subEl.addEventListener('click',e=>{
     const bubble=e.target.closest('.ts-bubble');
     if(!bubble) return;
@@ -1884,7 +1942,6 @@ filterBtns.forEach(btn => {
     if(window.innerWidth<=640) bubble.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
   });
 
-  // Init: show first category
   showSubBubbles(activeCatId,true);
 })();
 
