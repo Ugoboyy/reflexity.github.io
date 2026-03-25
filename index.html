@@ -8,6 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23060608'/%3E%3Crect x='3' y='4' width='3' height='24' rx='1' fill='%2300e5ff'/%3E%3Crect x='3' y='4' width='7' height='3' rx='1' fill='%2300e5ff'/%3E%3Crect x='3' y='25' width='7' height='3' rx='1' fill='%2300e5ff'/%3E%3Crect x='26' y='4' width='3' height='24' rx='1' fill='%2300e5ff'/%3E%3Crect x='22' y='4' width='7' height='3' rx='1' fill='%2300e5ff'/%3E%3Crect x='22' y='25' width='7' height='3' rx='1' fill='%2300e5ff'/%3E%3Crect x='14' y='4' width='4' height='24' rx='2' fill='%237B3AED'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.min.js"></script>
 <script>
 // Apply saved theme immediately to prevent flash of wrong theme
 (function(){var t=localStorage.getItem('reflexity-theme');if(t)document.documentElement.setAttribute('data-theme',t)})();
@@ -143,7 +144,9 @@ body.menu-open .mobile-menu{opacity:1;pointer-events:all}
 .tag-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);border-radius:4px;padding:clamp(4px,0.6vw,6px) clamp(10px,1.2vw,14px);font-family:var(--mono);font-size:clamp(10px,0.75vw,11px);color:var(--cyan);letter-spacing:.06em;margin-bottom:clamp(18px,3vw,28px)}
 .tag-pill-dot{width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 8px var(--cyan)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
-h1{font-family:var(--sans);font-size:clamp(32px,5.5vw + 0.5rem,72px);font-weight:800;line-height:1.04;letter-spacing:-.035em;color:var(--white);margin-bottom:clamp(16px,2.5vw,24px)}
+h1{font-family:var(--sans);font-size:clamp(40px,8vw,80px);font-weight:900;line-height:1.04;letter-spacing:-.035em;color:var(--white);margin-bottom:clamp(16px,2.5vw,24px);min-height:calc(clamp(40px,8vw,80px) * 1.04 * 2.4)}
+/* Typed.js cursor — inherits .hl gradient via background-clip */
+.typed-cursor{display:inline;font-weight:900;vertical-align:baseline;-webkit-text-fill-color:transparent;background:linear-gradient(90deg,var(--cyan),#a78bfa);-webkit-background-clip:text;background-clip:text}
 .hl{background:linear-gradient(90deg,var(--cyan),#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-desc{font-size:clamp(14px,1.1vw,16px);line-height:1.8;color:var(--muted);font-weight:300;max-width:min(480px,100%);margin-bottom:clamp(24px,4vw,40px)}
 .hero-actions{display:flex;align-items:center;gap:clamp(12px,1.6vw,20px);flex-wrap:wrap}
@@ -1133,8 +1136,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="tag-pill reveal"><span class="tag-pill-dot"></span>Taking on new clients — limited spots left</div>
-        <h1 class="reveal d1">AI Systems That<br><span class="hl">Work While<br>You Sleep</span></h1>
+        <h1 class="reveal d1">AI Systems That<br><span class="hl">Work While You <span id="typed-hero"></span></span></h1>
         <p class="hero-desc reveal d2">I build production-ready AI tools — intelligent chatbots, workflow automations, and custom LLM systems — for businesses ready to stop doing things manually.</p>
         <div class="hero-actions reveal d3">
           <a href="https://calendly.com/hello-reflexity/free-auditcall" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Book Free AI Audit →</a>
@@ -2072,6 +2074,16 @@ if(initFilterBtn) applyFilter(initFilterBtn.dataset.filter);
     });
   },{passive:true});
 })();
+// TYPED.JS HERO
+new Typed('#typed-hero',{
+  strings:['Sleep','Scale','Save'],
+  typeSpeed:80,
+  backSpeed:50,
+  backDelay:1500,
+  loop:true,
+  cursorChar:'_',
+  showCursor:true
+});
 </script>
 </body>
 </html>
