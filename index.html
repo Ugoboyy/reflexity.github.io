@@ -332,6 +332,57 @@ h3{font-family:var(--mono);font-size:clamp(16px,1.6vw,22px);font-weight:600;line
 }
 
 /* PROCESS */
+/* ── AI SOLUTIONS ── */
+#ai-solutions{padding:var(--sp-2xl) 0}
+.ais-head{text-align:center;margin-bottom:clamp(36px,5vw,64px)}
+.ais-head .eyebrow{justify-content:center}
+.ais-title{font-family:var(--mono);font-size:clamp(26px,4vw,54px);font-weight:800;line-height:1.08;letter-spacing:-.03em;color:var(--white);margin-bottom:clamp(10px,1.2vw,16px)}
+.ais-sub{font-family:var(--mono);font-size:clamp(14px,1.05vw,16px);line-height:1.7;color:var(--muted);font-weight:400;max-width:580px;margin:0 auto}
+/* grid */
+.ais-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,2.5vw,32px);align-items:stretch}
+@media(max-width:640px){.ais-grid{grid-template-columns:1fr;gap:clamp(24px,5vw,32px)}}
+/* card shell */
+.ais-card{background:rgba(255,255,255,.04);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--border2);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .35s,box-shadow .35s,transform .35s;position:relative}
+.ais-card:hover{border-color:rgba(0,229,255,.3);box-shadow:0 16px 60px rgba(0,0,0,.35);transform:translateY(-5px)}
+.ais-card.paid{border-color:rgba(123,58,237,.28);background:linear-gradient(160deg,rgba(123,58,237,.08),rgba(255,255,255,.02))}
+.ais-card.paid:hover{border-color:rgba(123,58,237,.55);box-shadow:0 16px 60px rgba(123,58,237,.2)}
+[data-theme="light"] .ais-card{background:#F5F4F0;border-color:rgba(0,0,0,.1);box-shadow:0 2px 16px rgba(0,0,0,.06)}
+[data-theme="light"] .ais-card.paid{background:linear-gradient(160deg,rgba(123,58,237,.06),#F5F4F0);border-color:rgba(123,58,237,.2)}
+[data-theme="light"] .ais-card:hover{box-shadow:0 12px 48px rgba(0,0,0,.12)}
+/* media container — top 50% */
+/* media container */
+.ais-media{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--s2);border-radius:0;border-bottom:1px solid var(--border)}
+[data-theme="light"] .ais-media{border-bottom-color:rgba(0,0,0,.08)}
+/* video + img fill */
+.ais-media video,.ais-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border-radius:0;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.ais-card:hover .ais-media video,.ais-card:hover .ais-media img{transform:scale(1.05)}
+/* placeholder — absolute behind video */
+.ais-media-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--s2),var(--s3));z-index:0}
+.ais-media-ph svg{width:clamp(48px,6vw,72px);height:clamp(48px,6vw,72px);opacity:.3}
+.ais-card.paid .ais-media-ph{background:linear-gradient(135deg,rgba(123,58,237,.2),rgba(204,68,204,.12),var(--s3))}
+/* inner edge glow — z-index above video */
+.ais-media::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
+  box-shadow:inset 0 0 30px rgba(0,0,0,.5);
+  background:linear-gradient(to bottom,rgba(0,0,0,.1) 0%,transparent 40%,transparent 55%,rgba(0,0,0,.55) 100%)}
+.ais-card.paid .ais-media::after{box-shadow:inset 0 0 30px rgba(0,0,0,.5),inset 0 0 70px rgba(123,58,237,.14);
+  background:linear-gradient(to bottom,rgba(0,0,0,.08) 0%,transparent 40%,transparent 55%,rgba(0,0,0,.6) 100%)}
+/* badge — over media, above gradient overlay */
+.ais-badge{position:absolute;top:14px;right:14px;z-index:3;background:linear-gradient(135deg,#7B3AED,#CC44CC);color:#fff;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.07em;padding:5px 12px;border-radius:20px;text-transform:uppercase;white-space:nowrap;box-shadow:0 2px 16px rgba(123,58,237,.5),0 0 0 1px rgba(255,255,255,.12)}
+/* content area */
+.ais-body{padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:clamp(12px,1.5vw,18px);flex:1}
+.ais-card-title{font-family:var(--mono);font-size:clamp(18px,1.6vw,22px);font-weight:800;letter-spacing:-.025em;color:var(--white);line-height:1.2}
+@media(max-width:640px){.ais-card-title{font-size:clamp(20px,5.5vw,24px)}}
+.ais-card-desc{font-family:var(--mono);font-size:clamp(13px,1vw,15px);line-height:1.75;color:var(--muted);font-weight:400;flex:1}
+/* paid CTA */
+.ais-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#3b3bd4 0%,#7B3AED 55%,#CC44CC 100%);color:#fff;padding:clamp(12px,1.3vw,14px) clamp(22px,2.2vw,30px);border-radius:10px;font-family:var(--mono);font-size:clamp(13px,0.95vw,14px);font-weight:700;letter-spacing:.02em;box-shadow:0 0 30px rgba(123,58,237,.3);transition:opacity .2s,transform .25s,box-shadow .3s;white-space:nowrap;margin-top:auto}
+.ais-btn:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 0 50px rgba(123,58,237,.48)}
+/* free CTA — ghost */
+.ais-btn-free{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.06);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.22);color:#fff;padding:clamp(12px,1.3vw,14px) clamp(22px,2.2vw,30px);border-radius:10px;font-family:var(--mono);font-size:clamp(13px,0.95vw,14px);font-weight:700;letter-spacing:.02em;transition:background .25s,border-color .25s,transform .25s,box-shadow .3s;white-space:nowrap;margin-top:auto;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
+.ais-btn-free:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 8px 24px rgba(0,0,0,.2)}
+[data-theme="light"] .ais-btn-free{background:rgba(26,26,26,.06);border-color:rgba(26,26,26,.2);color:#1A1A1A}
+[data-theme="light"] .ais-btn-free:hover{background:rgba(26,26,26,.12);border-color:rgba(26,26,26,.36);color:#000}
+@media(max-width:640px){.ais-btn,.ais-btn-free{width:100%;font-size:15px;padding:14px 20px}}
+
 #process{padding:var(--sp-2xl) 0}
 .proc-head{text-align:center;margin-bottom:clamp(36px,5vw,64px)}
 .proc-head .eyebrow{justify-content:center}
@@ -577,7 +628,7 @@ h3{font-family:var(--mono);font-size:clamp(16px,1.6vw,22px);font-weight:600;line
   color:var(--ts-color,var(--cyan));background:rgba(0,229,255,.06);
   border:1px solid rgba(0,229,255,.15);border-radius:4px;
   padding:clamp(4px,0.5vw,6px) clamp(8px,1vw,14px);margin-bottom:clamp(10px,1.2vw,14px);width:fit-content}
-.ts-pane-title{font-family:var(--sans);font-size:clamp(20px,2.5vw,32px);font-weight:800;
+.ts-pane-title{font-family:var(--mono);font-size:clamp(20px,2.5vw,32px);font-weight:800;
   letter-spacing:-.03em;color:var(--white);margin-bottom:clamp(8px,1vw,12px);line-height:1.15}
 .ts-pane-desc{font-size:clamp(13px,1vw,15px);line-height:1.8;color:var(--muted);font-weight:300;max-width:480px}
 
@@ -598,7 +649,7 @@ h3{font-family:var(--mono);font-size:clamp(16px,1.6vw,22px);font-weight:600;line
   .ts-cat-row{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x mandatory;padding:4px 16px}
   .ts-cat-row::-webkit-scrollbar{display:none}
 }
-.ts-cat-btn{display:inline-flex;align-items:center;gap:8px;padding:clamp(9px,1.1vw,13px) clamp(14px,1.6vw,20px);background:var(--s1);border:1px solid var(--border);border-radius:var(--r-md);font-family:var(--sans);font-size:clamp(12px,0.9vw,13.5px);font-weight:600;color:var(--muted2);letter-spacing:-.01em;cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);scroll-snap-align:start;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+.ts-cat-btn{display:inline-flex;align-items:center;gap:8px;padding:clamp(9px,1.1vw,13px) clamp(14px,1.6vw,20px);background:var(--s1);border:1px solid var(--border);border-radius:var(--r-md);font-family:var(--mono);font-size:clamp(12px,0.9vw,13.5px);font-weight:600;color:var(--muted2);letter-spacing:-.01em;cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);scroll-snap-align:start;flex-shrink:0;-webkit-tap-highlight-color:transparent}
 .ts-cat-btn:hover{border-color:rgba(0,229,255,.3);color:var(--white);background:var(--s2)}
 .ts-cat-btn.active{border-color:var(--cat-color,var(--cyan));color:var(--cat-color,var(--cyan));background:var(--s2);box-shadow:0 0 22px var(--cat-glow,rgba(0,229,255,.15))}
 .ts-cat-emoji{font-size:clamp(15px,1.3vw,18px);line-height:1}
@@ -1048,6 +1099,68 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
   .project-title,.proc-title,.ts-pane-title{font-weight:800}
 }
 
+/* ── HORIZONTAL TOUCH CAROUSELS (mobile ≤ 768px) ── */
+.c-dots{display:none}
+@media(max-width:768px){
+  /* Convert grids to scroll tracks */
+  .portfolio-grid,
+  .ais-grid,
+  .tgrid{
+    display:flex!important;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    gap:16px;
+    align-items:stretch;
+    /* negate wrap padding for full-bleed carousel */
+    margin-left:calc(-1 * clamp(16px,4vw,40px));
+    margin-right:calc(-1 * clamp(16px,4vw,40px));
+    padding-left:clamp(16px,4vw,40px);
+    padding-right:clamp(16px,4vw,40px);
+    scroll-padding-left:clamp(16px,4vw,40px);
+  }
+  .portfolio-grid::-webkit-scrollbar,
+  .ais-grid::-webkit-scrollbar,
+  .tgrid::-webkit-scrollbar{display:none}
+  /* Card snap behaviour */
+  .project-card,
+  .ais-card,
+  .tcard{
+    flex-shrink:0;
+    width:85vw;
+    scroll-snap-align:start;
+  }
+  /* Keep filtered-out portfolio cards hidden */
+  .project-card.hidden{display:none!important}
+  /* Testimonial text + author centering inside carousel */
+  .tcard .ttext{text-align:center}
+  .tcard .tauthor{justify-content:center}
+  /* Progress dots */
+  .c-dots{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    margin-top:22px;
+  }
+  .c-dot{
+    width:6px;height:6px;
+    border-radius:50%;
+    background:rgba(255,255,255,.22);
+    border:none;
+    padding:0;
+    cursor:pointer;
+    outline:none;
+    transition:background .25s,width .25s,border-radius .25s;
+    flex-shrink:0;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .c-dot.active{background:var(--cyan);width:20px;border-radius:3px}
+  [data-theme="light"] .c-dot{background:rgba(0,0,0,.15)}
+  [data-theme="light"] .c-dot.active{background:var(--cyan)}
+}
+
 </style>
 </head>
 <body>
@@ -1319,7 +1432,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
       <button class="filter-btn" data-filter="automation">Automation</button>
       <button class="filter-btn" data-filter="web-apps">Web Apps</button>
     </div>
-    <div class="portfolio-grid">
+    <div class="portfolio-grid" id="portfolioTrack">
       <div class="project-card reveal" data-category="ai-tools">
         <div class="project-img">
           <div class="project-img-bg" style="background:linear-gradient(135deg,#071820,#0a2535)"></div>
@@ -1405,6 +1518,79 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
         </div>
       </div>
     </div>
+    <div class="c-dots" id="portfolioDots"></div>
+  </div>
+</section>
+
+<!-- AI SOLUTIONS -->
+<section id="ai-solutions">
+  <div class="wrap">
+    <div class="ais-head">
+      <div class="eyebrow reveal">Products</div>
+      <h2 class="ais-title reveal d1">Ready-to-Use AI Solutions</h2>
+      <p class="ais-sub reveal d2">Deploy professional-grade tools instantly and join the Reflexity exclusive community.</p>
+    </div>
+    <div class="ais-grid reveal" id="aisTrack">
+
+      <!-- PAID CARD — Premium Bundle -->
+      <div class="ais-card paid">
+        <!-- Media Container -->
+        <div class="ais-media">
+          <span class="ais-badge">Exclusive Community Access</span>
+          <!-- Placeholder (visible until video src is added) -->
+          <div class="ais-media-ph">
+            <svg viewBox="0 0 64 64" fill="none" stroke="#a78bfa" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="20" r="8"/>
+              <path d="M8 56v-4a8 8 0 018-8h16a8 8 0 018 8v4"/>
+              <circle cx="44" cy="20" r="6"/>
+              <path d="M56 56v-3a6 6 0 00-4-5.66"/>
+              <path d="M40 14.13a6 6 0 010 11.75"/>
+            </svg>
+          </div>
+          <!-- Video: set src to your video file path to activate -->
+          <video autoplay muted loop playsinline preload="none" aria-hidden="true">
+            <source src="" type="video/mp4">
+          </video>
+        </div>
+        <!-- Content -->
+        <div class="ais-body">
+          <div class="ais-card-title">Reflexity Premium Bundle + Community</div>
+          <p class="ais-card-desc">The ultimate AI automation engine. Get exclusive access to the Reflexity community, weekly workflow drops, and direct developer support.</p>
+          <a href="https://whop.com/reflexity/" target="_blank" rel="noopener noreferrer" class="ais-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            Buy &amp; Join on Whop
+          </a>
+        </div>
+      </div>
+
+      <!-- FREE CARD — Starter Automations -->
+      <div class="ais-card">
+        <!-- Media Container -->
+        <div class="ais-media">
+          <!-- Placeholder (visible until video src is added) -->
+          <div class="ais-media-ph">
+            <svg viewBox="0 0 64 64" fill="none" stroke="#00e5ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M32 4L12 36h18l-2 24 24-28H34L36 4z"/>
+            </svg>
+          </div>
+          <!-- Video: set src to your video file path to activate -->
+          <video autoplay muted loop playsinline preload="none" aria-hidden="true">
+            <source src="" type="video/mp4">
+          </video>
+        </div>
+        <!-- Content -->
+        <div class="ais-body">
+          <div class="ais-card-title">Starter AI Automations</div>
+          <p class="ais-card-desc">Plug-and-play n8n &amp; Make blueprints. A zero-cost toolkit to automate your lead gen, support, and administrative overhead instantly.</p>
+          <a href="https://whop.com/reflexity/" target="_blank" rel="noopener noreferrer" class="ais-btn-free">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Get Free
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="c-dots" id="aisDots"></div>
   </div>
 </section>
 
@@ -1432,11 +1618,12 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
       <div class="eyebrow reveal">Testimonials</div>
       <h2 class="reveal d1">What clients say after<br><span class="hl">working with Reflexity</span></h2>
     </div>
-    <div class="tgrid">
+    <div class="tgrid" id="tgridTrack">
       <div class="tcard feat reveal"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="quote-mark">"</span><p class="ttext">I was skeptical at first. But they delivered a chatbot in 4 days that now handles 80% of our customer inquiries. Response time went from 6 hours to instant — without hiring extra staff.</p><div class="tauthor"><div class="tav" style="background:linear-gradient(135deg,#1a4b9f,#0d2a60)">M</div><div><div class="tname">Marcus T.</div><div class="trole">// E-commerce Founder</div></div></div></div>
       <div class="tcard reveal d1"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="quote-mark">"</span><p class="ttext">The lead follow-up automation genuinely changed my business. I used to lose leads because I couldn't respond fast enough. Now AI qualifies them instantly and books calls while I sleep.</p><div class="tauthor"><div class="tav" style="background:linear-gradient(135deg,#9f2a10,#601a0a)">S</div><div><div class="tname">Sarah K.</div><div class="trole">// Real Estate Agent</div></div></div></div>
       <div class="tcard reveal d2"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="quote-mark">"</span><p class="ttext">Fast, clear, they explain what they build. Reflexity made sure I understood everything and the tool worked exactly as promised. Will hire again without hesitation.</p><div class="tauthor"><div class="tav" style="background:linear-gradient(135deg,#1a7f40,#0d4025)">J</div><div><div class="tname">James O.</div><div class="trole">// Business Coach</div></div></div></div>
     </div>
+    <div class="c-dots" id="tgridDots"></div>
   </div>
 </section>
 
@@ -2075,6 +2262,58 @@ if(initFilterBtn) applyFilter(initFilterBtn.dataset.filter);
       }
     });
   },{passive:true});
+})();
+// HORIZONTAL TOUCH CAROUSELS — snap scroll + progress dots
+(function(){
+  function visible(track){
+    return[...track.children].filter(c=>getComputedStyle(c).display!=='none');
+  }
+  function buildDots(track,wrap){
+    wrap.innerHTML='';
+    visible(track).forEach((card,i)=>{
+      const d=document.createElement('button');
+      d.className='c-dot'+(i===0?' active':'');
+      d.setAttribute('aria-label','Go to item '+(i+1));
+      d.addEventListener('click',()=>{
+        card.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
+      });
+      wrap.appendChild(d);
+    });
+  }
+  function initCarousel(trackId,dotsId){
+    const track=document.getElementById(trackId);
+    const wrap=document.getElementById(dotsId);
+    if(!track||!wrap)return null;
+    buildDots(track,wrap);
+    let ticking=false;
+    track.addEventListener('scroll',()=>{
+      if(ticking)return;
+      ticking=true;
+      requestAnimationFrame(()=>{
+        const tr=track.getBoundingClientRect();
+        const tc=tr.left+tr.width/2;
+        const cards=visible(track);
+        let closest=0,minD=Infinity;
+        cards.forEach((c,i)=>{
+          const cr=c.getBoundingClientRect();
+          const d=Math.abs(tc-(cr.left+cr.width/2));
+          if(d<minD){minD=d;closest=i;}
+        });
+        wrap.querySelectorAll('.c-dot').forEach((d,i)=>d.classList.toggle('active',i===closest));
+        ticking=false;
+      });
+    },{passive:true});
+    return()=>{buildDots(track,wrap);track.scrollLeft=0;};
+  }
+  const refreshWork=initCarousel('portfolioTrack','portfolioDots');
+  initCarousel('aisTrack','aisDots');
+  initCarousel('tgridTrack','tgridDots');
+  // Rebuild portfolio dots + reset scroll when filter changes
+  if(refreshWork){
+    document.querySelectorAll('.filter-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>requestAnimationFrame(refreshWork));
+    });
+  }
 })();
 // TYPED.JS HERO
 new Typed('#typed-hero',{
