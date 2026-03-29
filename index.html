@@ -301,6 +301,9 @@ h3{font-family:var(--mono);font-size:clamp(16px,1.6vw,22px);font-weight:600;line
 @media(max-width:599px){#portfolio .wrap{padding-left:clamp(20px,6vw,28px);padding-right:clamp(20px,6vw,28px)}}
 /* Card base */
 .project-card{background:var(--s1);border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.06);transition:border-color .3s,transform .38s cubic-bezier(.34,1.56,.64,1),opacity .4s,box-shadow .35s}
+/* Exclusive badge on product cards */
+.exclusive-badge{position:absolute;top:12px;right:12px;z-index:10;background:linear-gradient(135deg,#5b21b6,#7B3AED,#c026d3);color:#fff;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:20px;white-space:nowrap;box-shadow:0 0 14px rgba(123,58,237,.7),0 0 28px rgba(123,58,237,.35),0 0 0 1px rgba(255,255,255,.15);animation:badge-pulse 2.8s ease-in-out infinite}
+@keyframes badge-pulse{0%,100%{box-shadow:0 0 14px rgba(123,58,237,.7),0 0 28px rgba(123,58,237,.35),0 0 0 1px rgba(255,255,255,.15)}50%{box-shadow:0 0 22px rgba(168,85,247,.9),0 0 48px rgba(123,58,237,.55),0 0 0 1px rgba(255,255,255,.25)}}
 /* Desktop hover: lift + deepen glow */
 .project-card:hover{border-color:rgba(0,229,255,.32);transform:translateY(-6px);box-shadow:0 28px 72px rgba(0,0,0,.42),0 0 0 1px rgba(0,229,255,.14),inset 0 1px 0 rgba(255,255,255,.07)}
 .project-card.hidden{display:none}
@@ -1527,11 +1530,12 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
     <div class="c-dots" id="portfolioDots"></div>
 
     <!-- PART B: READY-TO-USE AI TOOLS -->
-    <h4 class="part-divider reveal" style="margin-top:clamp(52px,7vw,88px)">Ready-to-Use AI Tools on Whop</h4>
+    <h4 class="part-divider reveal" style="margin-top:clamp(52px,7vw,88px)">Ready-to-Use AI Products</h4>
     <div class="portfolio-grid" id="aisTrack">
 
       <!-- PAID CARD — Premium Bundle + Community -->
       <div class="project-card reveal" data-category="product">
+        <span class="exclusive-badge">Exclusive Community Access</span>
         <div class="project-img">
           <div class="project-img-bg" style="background:linear-gradient(135deg,#160920,#1a0d35)"></div>
           <div class="project-screen-lines"></div>
