@@ -90,7 +90,7 @@ nav.scrolled{background:rgba(6,6,8,.92);backdrop-filter:blur(24px);padding:clamp
 .logo-name{background:linear-gradient(90deg,#3b3bd4 0%,#7B3AED 50%,#CC44CC 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
 
 .nav-links{display:flex;gap:0;list-style:none;align-items:center}
-.nav-links a{color:var(--muted);font-family:var(--mono);font-size:clamp(12px,0.85vw,13px);font-weight:500;letter-spacing:-.01em;padding:8px clamp(10px,1.2vw,16px);border-radius:var(--r-sm);transition:color .3s cubic-bezier(.4,0,.2,1),background .3s;display:block;position:relative}
+.nav-links a{color:var(--muted);font-family:var(--mono);font-size:clamp(11px,0.82vw,13px);font-weight:500;letter-spacing:-.01em;padding:8px clamp(7px,0.9vw,13px);border-radius:var(--r-sm);transition:color .3s cubic-bezier(.4,0,.2,1),background .3s;display:block;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%) scaleX(0);width:60%;height:2px;background:linear-gradient(90deg,var(--cyan),#a78bfa);border-radius:2px;transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s;opacity:0}
 .nav-links a:hover{color:var(--white);background:rgba(255,255,255,.04)}
 .nav-links a:hover::after{transform:translateX(-50%) scaleX(1);opacity:1}
@@ -1099,6 +1099,11 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
   .project-title,.proc-title,.ts-pane-title{font-weight:800}
 }
 
+/* ── PART DIVIDER LABELS ── */
+.part-divider{display:flex;align-items:center;gap:16px;font-family:var(--mono);font-size:clamp(10px,0.75vw,11px);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);margin-bottom:clamp(20px,2.5vw,30px)}
+.part-divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.1),transparent)}
+[data-theme="light"] .part-divider::after{background:linear-gradient(90deg,rgba(0,0,0,.12),transparent)}
+
 /* ── HORIZONTAL TOUCH CAROUSELS (mobile ≤ 768px) ── */
 .c-dots{display:none}
 @media(max-width:768px){
@@ -1190,7 +1195,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
     <li><a href="#about" class="mob-link"><span>About</span><span class="mob-num">01</span></a></li>
     <li><a href="#services" class="mob-link"><span>Services</span><span class="mob-num">02</span></a></li>
     <li><a href="#techstack" class="mob-link"><span>Tech Stack</span><span class="mob-num">03</span></a></li>
-    <li><a href="#portfolio" class="mob-link"><span>Selected Work</span><span class="mob-num">04</span></a></li>
+    <li><a href="#portfolio" class="mob-link"><span>Featured Work &amp; Products</span><span class="mob-num">04</span></a></li>
     <li><a href="#proof" class="mob-link"><span>Testimonials</span><span class="mob-num">05</span></a></li>
     <li><a href="#faq" class="mob-link"><span>FAQ</span><span class="mob-num">06</span></a></li>
     <li><a href="#contact" class="mob-link"><span>Contact</span><span class="mob-num">07</span></a></li>
@@ -1225,7 +1230,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#techstack">Tech Stack</a></li>
-        <li><a href="#portfolio">Selected Work</a></li>
+        <li><a href="#portfolio">Featured Work &amp; Products</a></li>
         <li><a href="#proof">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -1423,10 +1428,11 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
 <section id="portfolio">
   <div class="wrap">
     <div class="portfolio-intro">
-      <div class="eyebrow reveal">Selected Work</div>
-      <h2 class="reveal d1">Real AI projects,<br><span class="hl">real results</span></h2>
-      <p class="sec-desc reveal d2" style="margin:0 auto;text-align:center">A selection of AI tools and automations I've built for real businesses — delivering measurable impact.</p>
+      <div class="eyebrow reveal">Featured Work &amp; Products</div>
+      <h2 class="reveal d1">Featured Work &amp;<br><span class="hl">Ready Tools</span></h2>
+      <p class="sec-desc reveal d2" style="margin:0 auto;text-align:center">Custom AI systems built for clients + instant products you can use today.</p>
     </div>
+    <h4 class="part-divider reveal">Custom Client Projects</h4>
     <div class="filter-btns reveal">
       <button class="filter-btn active" data-filter="ai-tools">AI Tools</button>
       <button class="filter-btn" data-filter="automation">Automation</button>
@@ -1519,73 +1525,48 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,229,255,.22) transparent}
       </div>
     </div>
     <div class="c-dots" id="portfolioDots"></div>
-  </div>
-</section>
 
-<!-- AI SOLUTIONS -->
-<section id="ai-solutions">
-  <div class="wrap">
-    <div class="ais-head">
-      <div class="eyebrow reveal">Products</div>
-      <h2 class="ais-title reveal d1">Ready-to-Use AI Solutions</h2>
-      <p class="ais-sub reveal d2">Deploy professional-grade tools instantly and join the Reflexity exclusive community.</p>
-    </div>
-    <div class="ais-grid reveal" id="aisTrack">
+    <!-- PART B: READY-TO-USE AI TOOLS -->
+    <h4 class="part-divider reveal" style="margin-top:clamp(52px,7vw,88px)">Ready-to-Use AI Tools on Whop</h4>
+    <div class="portfolio-grid" id="aisTrack">
 
-      <!-- PAID CARD — Premium Bundle -->
-      <div class="ais-card paid">
-        <!-- Media Container -->
-        <div class="ais-media">
-          <span class="ais-badge">Exclusive Community Access</span>
-          <!-- Placeholder (visible until video src is added) -->
-          <div class="ais-media-ph">
-            <svg viewBox="0 0 64 64" fill="none" stroke="#a78bfa" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="24" cy="20" r="8"/>
-              <path d="M8 56v-4a8 8 0 018-8h16a8 8 0 018 8v4"/>
-              <circle cx="44" cy="20" r="6"/>
-              <path d="M56 56v-3a6 6 0 00-4-5.66"/>
-              <path d="M40 14.13a6 6 0 010 11.75"/>
-            </svg>
-          </div>
-          <!-- Video: set src to your video file path to activate -->
-          <video autoplay muted loop playsinline preload="none" aria-hidden="true">
-            <source src="" type="video/mp4">
-          </video>
+      <!-- PAID CARD — Premium Bundle + Community -->
+      <div class="project-card reveal" data-category="product">
+        <div class="project-img">
+          <div class="project-img-bg" style="background:linear-gradient(135deg,#160920,#1a0d35)"></div>
+          <div class="project-screen-lines"></div>
+          <span class="project-emoji">👥</span>
         </div>
-        <!-- Content -->
-        <div class="ais-body">
-          <div class="ais-card-title">Reflexity Premium Bundle + Community</div>
-          <p class="ais-card-desc">The ultimate AI automation engine. Get exclusive access to the Reflexity community, weekly workflow drops, and direct developer support.</p>
-          <a href="https://whop.com/reflexity/" target="_blank" rel="noopener noreferrer" class="ais-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-            Buy &amp; Join on Whop
-          </a>
+        <div class="project-body">
+          <span class="project-cat" style="background:rgba(123,58,237,.1);border-color:rgba(123,58,237,.25);color:#a78bfa">Premium Product</span>
+          <h3 class="project-title">Reflexity Premium Bundle + Community</h3>
+          <p class="project-desc">The ultimate AI automation engine. Get exclusive access to the Reflexity community, weekly workflow drops, and direct developer support.</p>
+          <div class="project-tags">
+            <span class="project-tag" style="background:rgba(123,58,237,.08);border-color:rgba(123,58,237,.18);color:#a78bfa">Whop</span>
+            <span class="project-tag" style="background:rgba(123,58,237,.08);border-color:rgba(123,58,237,.18);color:#a78bfa">Community</span>
+            <span class="project-tag" style="background:rgba(123,58,237,.08);border-color:rgba(123,58,237,.18);color:#a78bfa">Automations</span>
+          </div>
+          <a href="https://whop.com/reflexity/" target="_blank" rel="noopener noreferrer" class="project-link">Buy &amp; Join on Whop <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
 
       <!-- FREE CARD — Starter Automations -->
-      <div class="ais-card">
-        <!-- Media Container -->
-        <div class="ais-media">
-          <!-- Placeholder (visible until video src is added) -->
-          <div class="ais-media-ph">
-            <svg viewBox="0 0 64 64" fill="none" stroke="#00e5ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M32 4L12 36h18l-2 24 24-28H34L36 4z"/>
-            </svg>
-          </div>
-          <!-- Video: set src to your video file path to activate -->
-          <video autoplay muted loop playsinline preload="none" aria-hidden="true">
-            <source src="" type="video/mp4">
-          </video>
+      <div class="project-card reveal d1" data-category="product">
+        <div class="project-img">
+          <div class="project-img-bg" style="background:linear-gradient(135deg,#071820,#0a2535)"></div>
+          <div class="project-screen-lines"></div>
+          <span class="project-emoji">⚡</span>
         </div>
-        <!-- Content -->
-        <div class="ais-body">
-          <div class="ais-card-title">Starter AI Automations</div>
-          <p class="ais-card-desc">Plug-and-play n8n &amp; Make blueprints. A zero-cost toolkit to automate your lead gen, support, and administrative overhead instantly.</p>
-          <a href="https://whop.com/reflexity/" target="_blank" rel="noopener noreferrer" class="ais-btn-free">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Get Free
-          </a>
+        <div class="project-body">
+          <span class="project-cat">Free Resource</span>
+          <h3 class="project-title">Starter AI Automations</h3>
+          <p class="project-desc">Plug-and-play n8n &amp; Make blueprints. A zero-cost toolkit to automate your lead gen, support, and administrative overhead instantly.</p>
+          <div class="project-tags">
+            <span class="project-tag">n8n</span>
+            <span class="project-tag">Make</span>
+            <span class="project-tag">Free</span>
+          </div>
+          <a href="https://whop.com/reflexity/" target="_blank" rel="noopener noreferrer" class="project-link">Get Free <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
 
@@ -1914,7 +1895,7 @@ function toggleFaq(btn) {
 
 // PORTFOLIO FILTER
 const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
+const projectCards = document.querySelectorAll('#portfolioTrack .project-card');
 function applyFilter(filter){
   projectCards.forEach(card=>{
     card.classList.toggle('hidden', card.dataset.category !== filter);
